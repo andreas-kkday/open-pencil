@@ -5,3 +5,9 @@
 # tests/helpers/mcp/discovery-isolation.ts for the rationale.
 [test]
 preload = ["./tests/helpers/mcp/discovery-isolation.ts"]
+
+# Keep Bun's global package store and executable directory explicit so the
+# `install:global` script works consistently across shells and machines.
+[install]
+globalDir = "~/.bun/install/global"
+globalBinDir = "~/.bun/bin"

@@ -65,6 +65,34 @@ describe('documentFontStatus', () => {
     ])
   })
 
+  test('uses configured substitute families in order', () => {
+    const graph = new SceneGraph()
+    const manager = new FontManager({ substituteFamily: ['Missing Fallback', 'Roboto'] })
+    manager.setSubstituteFamily('Noto Sans')
+    manager.markLoaded('Roboto', 'Regular', new ArrayBuffer(8), 'local')
+    manager.markLoaded('Noto Sans', 'Regular', new ArrayBuffer(8), 'local')
+    const node = graph.createNode('TEXT', pageId(graph), {
+      name: 'Unavailable label',
+      text: 'Hello',
+      fontFamily: 'Missing Sans',
+      fontWeight: 400
+    })
+
+    expect(manager.substituteFamilies()).toEqual(['Missing Fallback', 'Roboto', 'Noto Sans'])
+    expect(documentFontStatus(graph, pageId(graph), manager).issues).toEqual([
+      {
+        family: 'Missing Sans',
+        style: 'Regular',
+        status: 'substituted',
+        source: null,
+        substituteFamily: 'Roboto',
+        reason: null,
+        nodeIds: [node.id],
+        nodeNames: ['Unavailable label']
+      }
+    ])
+  })
+
   test('reports synthesized styles and style-run faces separately', () => {
     const graph = new SceneGraph()
     const manager = new FontManager()

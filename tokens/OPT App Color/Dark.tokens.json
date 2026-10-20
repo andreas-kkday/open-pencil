@@ -1,0 +1,60 @@
+{
+  "System": {
+    "Grey": {
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6625,
+            0.6625,
+            0.6625
+          ],
+          "alpha": 1,
+          "hex": "#a9a9a9"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.294118,
+            0.294118,
+            0.294118
+          ],
+          "alpha": 1,
+          "hex": "#4b4b4b"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "General": {
+    "Info_Secondary": {
+      "$type": "color",
+      "$value": "{System.Grey.400}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "OPT App Color",
+      "mode": "Dark",
+      "default": false
+    }
+  }
+}

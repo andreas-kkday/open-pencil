@@ -1,0 +1,45 @@
+{
+  "System": {
+    "Gray": {
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.215686,
+            0.231373,
+            0.301961
+          ],
+          "alpha": 1,
+          "hex": "#373b4d"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "Color": {
+    "Icon": {
+      "default": {
+        "$type": "color",
+        "$value": "{System.Gray.900}",
+        "$description": "Use for icon-only buttons or icons paired with color/text/default. Apply the primary status color as the default state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Color",
+      "mode": "Light Mode",
+      "default": true
+    }
+  }
+}

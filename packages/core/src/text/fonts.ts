@@ -1,6 +1,7 @@
 /* eslint-disable max-lines -- font loading and registration share FontManager lifecycle state */
 
 import type { CanvasKit, TypefaceFontProvider } from 'canvaskit-wasm'
+import { uniq } from 'es-toolkit/array'
 
 import type { FontVariation, SceneGraph } from '@open-pencil/scene-graph'
 
@@ -34,6 +35,11 @@ import { normalizedCoverageText, WebFontResolver } from '#core/text/web-fonts'
 import type { WebFontFetch, WebFontProviderId } from '#core/text/web-fonts'
 
 type FindLocalFontOptions = { allowVariable?: boolean }
+
+export interface FontManagerOptions {
+  /** Families tried in order when a requested font cannot be loaded. Defaults to Inter. */
+  substituteFamily?: string | readonly string[]
+}
 
 const BUNDLED_FONTS: Record<string, string> = {
   'Inter|Regular': '/Inter-Regular.ttf',
@@ -83,6 +89,40 @@ export class FontManager {
   private cjkFallbackPromise: Promise<string[]> | null = null
   private arabicFallbackFamilies: string[] = []
   private arabicFallbackPromise: Promise<string[]> | null = null
+  private configuredSubstituteFamilies: string[]
+
+  constructor(options: FontManagerOptions = {}) {
+    this.configuredSubstituteFamilies = this.normalizeSubstituteFamilies(options.substituteFamily)
+  }
+
+  /** The first family used when a requested font cannot be loaded. */
+  substituteFamily(): string {
+    return this.configuredSubstituteFamilies[0] ?? DEFAULT_FONT_FAMILY
+  }
+
+  /** Families tried in order when a requested font cannot be loaded. */
+  substituteFamilies(): readonly string[] {
+    return this.configuredSubstituteFamilies
+  }
+
+  /** Add a substitute family after the previously configured families. */
+  setSubstituteFamily(family: string | readonly string[]): void {
+    const additions = this.normalizeSubstituteFamilies(family, false)
+    for (const candidate of additions) {
+      if (!this.configuredSubstituteFamilies.includes(candidate)) {
+        this.configuredSubstituteFamilies.push(candidate)
+      }
+    }
+  }
+
+  private normalizeSubstituteFamilies(
+    families: string | readonly string[] | undefined,
+    useDefault = true
+  ): string[] {
+    const values = typeof families === 'string' ? [families] : (families ?? [])
+    const normalized = values.map((family) => family.trim()).filter(Boolean)
+    return normalized.length > 0 ? uniq(normalized) : useDefault ? [DEFAULT_FONT_FAMILY] : []
+  }
 
   attachProvider(canvasKit: CanvasKit, provider: TypefaceFontProvider): void {
     this.fontProviders.add(provider)

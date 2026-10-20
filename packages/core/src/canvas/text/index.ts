@@ -82,7 +82,11 @@ function requiredFacesReadiness(r: FontReadinessRenderer, node: SceneNode): Node
     }
   }
   if (pending) return 'pending'
-  if (exhausted && fontManager.isStyleLoaded(DEFAULT_FONT_FAMILY, 'Regular')) return 'substituted'
+  if (
+    exhausted &&
+    fontManager.substituteFamilies().some((family) => fontManager.isStyleLoaded(family, 'Regular'))
+  )
+    return 'substituted'
   return exhausted ? 'exhausted' : 'ready'
 }
 

@@ -1,0 +1,56 @@
+{
+  "Space": {
+    "0": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "GAP"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "100": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "GAP"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "GAP"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Size",
+      "mode": "Mode 1",
+      "default": true
+    }
+  }
+}

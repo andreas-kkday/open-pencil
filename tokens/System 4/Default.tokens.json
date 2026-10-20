@@ -1,0 +1,83 @@
+{
+  "Gray": {
+    "100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.92549,
+          0.92549,
+          0.94902
+        ],
+        "alpha": 1,
+        "hex": "#ececf2"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.866667,
+          0.87451,
+          0.909804
+        ],
+        "alpha": 1,
+        "hex": "#dddfe8"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.352941,
+          0.364706,
+          0.435294
+        ],
+        "alpha": 1,
+        "hex": "#5a5d6f"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "white": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        1,
+        1
+      ],
+      "alpha": 1,
+      "hex": "#ffffff"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "System",
+      "mode": "Default",
+      "default": true
+    }
+  }
+}

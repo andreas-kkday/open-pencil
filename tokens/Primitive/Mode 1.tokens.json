@@ -1,0 +1,31 @@
+{
+  "1111": {
+    "Black": {
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.576471,
+            0.615686,
+            0.654902
+          ],
+          "alpha": 1,
+          "hex": "#939da7"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Primitive",
+      "mode": "Mode 1",
+      "default": true
+    }
+  }
+}

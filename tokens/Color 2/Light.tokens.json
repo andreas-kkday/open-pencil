@@ -1,0 +1,353 @@
+{
+  "Text": {
+    "default": {
+      "$type": "color",
+      "$value": "{Gray.900}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/900",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "{Gray.700}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/700",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "subtler": {
+      "$type": "color",
+      "$value": "{Gray.600}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/600",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "inverse": {
+      "$type": "color",
+      "$value": "{white}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "white",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{Gray.300}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/300",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "brand": {
+      "$type": "color",
+      "$value": "{brand.500}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "brand/500",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "selected": {
+      "$type": "color",
+      "$value": "{brand.600}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "brand/600",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "danger": {
+      "$type": "color",
+      "$value": "{danger.default}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "danger/default",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "{warning.default}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "warning/default",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{success.default}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "success/default",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "information": {
+      "$type": "color",
+      "$value": "{information.default}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "information/default",
+          "targetVariableSetName": "System"
+        }
+      }
+    }
+  },
+  "Background": {
+    "White": {
+      "default": {
+        "$type": "color",
+        "$value": "{white}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "white",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "brand": {
+      "subtlest": {
+        "default": {
+          "$type": "color",
+          "$value": "{brand.100}",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "brand/100",
+              "targetVariableSetName": "System"
+            }
+          }
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{brand.500}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "brand/500",
+            "targetVariableSetName": "System"
+          }
+        }
+      },
+      "bold": {
+        "default": {
+          "$type": "color",
+          "$value": "{brand.600}",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "brand/600",
+              "targetVariableSetName": "System"
+            }
+          }
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{Gray.100}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/100",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "danger": {
+      "default": {
+        "$type": "color",
+        "$value": "{danger.light}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "danger/light",
+            "targetVariableSetName": "System"
+          }
+        }
+      },
+      "bolder": {
+        "default": {
+          "$type": "color",
+          "$value": "{danger.default}",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "danger/default",
+              "targetVariableSetName": "System"
+            }
+          }
+        }
+      }
+    },
+    "Warning": {
+      "default": {
+        "$type": "color",
+        "$value": "{warning.light}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "warning/light",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "Success": {
+      "default": {
+        "$type": "color",
+        "$value": "{success.light}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "success/light",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "information": {
+      "default": {
+        "$type": "color",
+        "$value": "{information.light}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "information/light",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "input": {
+      "default": {
+        "$type": "color",
+        "$value": "{white}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "white",
+            "targetVariableSetName": "System"
+          }
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": "{brand.100}",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "brand/100",
+              "targetVariableSetName": "System"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Border": {
+    "default": {
+      "$type": "color",
+      "$value": "{Gray.400}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/400",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "{Gray.300}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/300",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{Gray.300}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/300",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "brand": {
+      "$type": "color",
+      "$value": "{brand.500}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "brand/500",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "selected": {
+      "$type": "color",
+      "$value": "{brand.600}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "brand/600",
+          "targetVariableSetName": "System"
+        }
+      }
+    },
+    "danger": {
+      "default": {
+        "$type": "color",
+        "$value": "{danger.default}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "danger/default",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "warning": {
+      "default": {
+        "$type": "color",
+        "$value": "{warning.default}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "warning/default",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    },
+    "success": {
+      "default": {
+        "$type": "color",
+        "$value": "{success.default}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "success/default",
+            "targetVariableSetName": "System"
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Color",
+      "mode": "Light",
+      "default": true
+    }
+  }
+}

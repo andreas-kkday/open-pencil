@@ -1,0 +1,338 @@
+{
+  "version": "2025-11-01",
+  "sets": {
+    "Primitive": {
+      "sources": [
+        {
+          "$ref": "Primitive/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "Size": {
+      "sources": [
+        {
+          "$ref": "Size/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "Typography": {
+      "sources": [
+        {
+          "$ref": "Typography/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "【 Set 】": {
+      "sources": [
+        {
+          "$ref": "【 Set 】/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "Color": {
+      "sources": [
+        {
+          "$ref": "Color/Light Mode.tokens.json"
+        }
+      ]
+    },
+    "Radius 2": {
+      "sources": [
+        {
+          "$ref": "Radius 2/Mode 1.tokens 2.tokens.json"
+        }
+      ]
+    },
+    "Spacing": {
+      "sources": [
+        {
+          "$ref": "Spacing/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "System 2": {
+      "sources": [
+        {
+          "$ref": "System 2/Default.tokens.json"
+        }
+      ]
+    },
+    "Color 2": {
+      "sources": [
+        {
+          "$ref": "Color 2/Light.tokens.json"
+        }
+      ]
+    },
+    "System 3": {
+      "sources": [
+        {
+          "$ref": "System 3/Default.tokens.json"
+        }
+      ]
+    },
+    "Color 3": {
+      "sources": [
+        {
+          "$ref": "Color 3/Light.tokens.json"
+        }
+      ]
+    },
+    "Setting": {
+      "sources": [
+        {
+          "$ref": "Setting/Mode 1.tokens.json"
+        }
+      ]
+    },
+    "Color 5": {
+      "sources": [
+        {
+          "$ref": "Color 5/Light Mode.tokens.json"
+        }
+      ]
+    },
+    "System 4": {
+      "sources": [
+        {
+          "$ref": "System 4/Default.tokens.json"
+        }
+      ]
+    },
+    "Color 6": {
+      "sources": [
+        {
+          "$ref": "Color 6/Light.tokens.json"
+        }
+      ]
+    },
+    "Styles": {
+      "sources": [
+        {
+          "$ref": "styles.tokens.json"
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "System": {
+      "contexts": {
+        "Candidate": [
+          {
+            "$ref": "System/Candidate.tokens.json"
+          }
+        ],
+        "Recruiter": [
+          {
+            "$ref": "System/Recruiter.tokens.json"
+          }
+        ]
+      },
+      "default": "Candidate"
+    },
+    "Radius": {
+      "contexts": {
+        "Rounded": [
+          {
+            "$ref": "Radius/Rounded.tokens.json"
+          }
+        ],
+        "Pill": [
+          {
+            "$ref": "Radius/Pill.tokens.json"
+          }
+        ]
+      },
+      "default": "Rounded"
+    },
+    "System Colors": {
+      "contexts": {
+        "Light": [
+          {
+            "$ref": "System Colors/Light.tokens.json"
+          }
+        ],
+        "Dark": [
+          {
+            "$ref": "System Colors/Dark.tokens.json"
+          }
+        ],
+        "Dark Elevated": [
+          {
+            "$ref": "System Colors/Dark Elevated.tokens.json"
+          }
+        ]
+      },
+      "default": "Light"
+    },
+    "System Colors 2": {
+      "contexts": {
+        "Light": [
+          {
+            "$ref": "System Colors 2/Light.tokens.json"
+          }
+        ],
+        "Dark": [
+          {
+            "$ref": "System Colors 2/Dark.tokens.json"
+          }
+        ],
+        "Dark Elevated": [
+          {
+            "$ref": "System Colors 2/Dark Elevated.tokens.json"
+          }
+        ],
+        "IC - Light": [
+          {
+            "$ref": "System Colors 2/IC - Light.tokens.json"
+          }
+        ],
+        "IC - Dark": [
+          {
+            "$ref": "System Colors 2/IC - Dark.tokens.json"
+          }
+        ],
+        "IC - Dark Elevated": [
+          {
+            "$ref": "System Colors 2/IC - Dark Elevated.tokens.json"
+          }
+        ]
+      },
+      "default": "Light"
+    },
+    "Theme": {
+      "contexts": {
+        "Light Mode": [
+          {
+            "$ref": "Theme/Light Mode.tokens.json"
+          }
+        ],
+        "Dark Mode": [
+          {
+            "$ref": "Theme/Dark Mode.tokens.json"
+          }
+        ]
+      },
+      "default": "Light Mode"
+    },
+    "Talent Search App": {
+      "contexts": {
+        "Light": [
+          {
+            "$ref": "Talent Search App/Light.tokens.json"
+          }
+        ],
+        "Dark": [
+          {
+            "$ref": "Talent Search App/Dark.tokens.json"
+          }
+        ]
+      },
+      "default": "Light"
+    },
+    "OPT App Color": {
+      "contexts": {
+        "Light": [
+          {
+            "$ref": "OPT App Color/Light.tokens.json"
+          }
+        ],
+        "Dark": [
+          {
+            "$ref": "OPT App Color/Dark.tokens.json"
+          }
+        ]
+      },
+      "default": "Light"
+    },
+    "Color 4": {
+      "contexts": {
+        "Light Mode": [
+          {
+            "$ref": "Color 4/Light Mode.tokens.json"
+          }
+        ],
+        "Dark Mode": [
+          {
+            "$ref": "Color 4/Dark Mode.tokens.json"
+          }
+        ]
+      },
+      "default": "Light Mode"
+    }
+  },
+  "resolutionOrder": [
+    {
+      "$ref": "#/sets/Primitive"
+    },
+    {
+      "$ref": "#/modifiers/System"
+    },
+    {
+      "$ref": "#/sets/Size"
+    },
+    {
+      "$ref": "#/modifiers/Radius"
+    },
+    {
+      "$ref": "#/sets/Typography"
+    },
+    {
+      "$ref": "#/sets/【 Set 】"
+    },
+    {
+      "$ref": "#/sets/Color"
+    },
+    {
+      "$ref": "#/sets/Radius 2"
+    },
+    {
+      "$ref": "#/sets/Spacing"
+    },
+    {
+      "$ref": "#/modifiers/System Colors"
+    },
+    {
+      "$ref": "#/modifiers/System Colors 2"
+    },
+    {
+      "$ref": "#/modifiers/Theme"
+    },
+    {
+      "$ref": "#/modifiers/Talent Search App"
+    },
+    {
+      "$ref": "#/modifiers/OPT App Color"
+    },
+    {
+      "$ref": "#/sets/System 2"
+    },
+    {
+      "$ref": "#/sets/Color 2"
+    },
+    {
+      "$ref": "#/sets/System 3"
+    },
+    {
+      "$ref": "#/sets/Color 3"
+    },
+    {
+      "$ref": "#/sets/Setting"
+    },
+    {
+      "$ref": "#/modifiers/Color 4"
+    },
+    {
+      "$ref": "#/sets/Color 5"
+    },
+    {
+      "$ref": "#/sets/System 4"
+    },
+    {
+      "$ref": "#/sets/Color 6"
+    },
+    {
+      "$ref": "#/sets/Styles"
+    }
+  ]
+}

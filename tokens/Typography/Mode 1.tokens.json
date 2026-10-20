@@ -1,0 +1,67 @@
+{
+  "Static": {
+    "Family": {
+      "Chinese": {
+        "$type": "string",
+        "$value": "Noto Sans TC",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Weight": {
+      "Regular": {
+        "$type": "string",
+        "$value": "400",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FONT_STYLE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "Body": {
+    "16": {
+      "Font CH": {
+        "$type": "fontFamily",
+        "$value": "{Static.Family.Chinese}",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FONT_FAMILY"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Size": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Typography",
+      "mode": "Mode 1",
+      "default": true
+    }
+  }
+}

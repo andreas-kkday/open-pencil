@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>信件範本</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              canvas: '#ecedf2', ink: '#373b4d', muted: '#737688', blue: '#1675f6'
+            },
+            fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'PingFang TC', 'Noto Sans TC', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <style>
+      * { box-sizing: border-box; }
+      html, body, #app { min-height: 100%; margin: 0; }
+      body { background: #d8d9df; font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', sans-serif; }
+      ::-webkit-scrollbar { width: 0; height: 0; }
+      .safe-shadow { box-shadow: 0 4px 12px rgba(41, 44, 64, .06); }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <main class="relative mx-auto flex min-h-screen w-full max-w-[402px] flex-col overflow-hidden bg-canvas text-ink shadow-2xl">
+        <header class="shrink-0 bg-white">
+          <div class="flex h-[54px] items-end justify-between px-6 pb-2 text-[14px] font-semibold text-[#2c3040]">
+            <span>9:41</span>
+            <div class="flex items-center gap-2 text-[13px]">
+              <span class="tracking-[-2px]">▮▮▮</span><span>⌁</span><span class="relative h-[10px] w-[19px] rounded-[3px] border border-[#2c3040]"><i class="absolute inset-y-[2px] left-[2px] right-[3px] rounded-[1px] bg-[#2c3040]"></i></span>
+            </div>
+          </div>
+          <div class="flex h-[48px] items-center justify-between border-b border-[#ececf0] px-5">
+            <button aria-label="返回" class="flex h-10 w-10 items-center justify-start text-[28px] leading-none text-[#363a4b]">‹</button>
+            <h1 class="text-[20px] font-semibold tracking-[.03em]">信件範本設定</h1>
+            <div class="flex w-10 justify-end gap-1 text-[#686c7e]"><button class="text-[23px]">⋯</button></div>
+          </div>
+        </header>
+
+        <nav class="flex h-[54px] shrink-0 items-center gap-0 overflow-x-auto bg-white px-5" aria-label="範本分類">
+          <button v-for="(tab, index) in tabs" :key="tab" @click="activeTab = tab" :class="activeTab === tab ? 'border-blue text-blue font-semibold' : 'border-transparent text-[#55596a]'" class="h-[54px] shrink-0 border-b-2 px-[10px] text-[14px] transition-colors">{{ tab }}</button>
+        </nav>
+
+        <section ref="scrollArea" class="flex-1 overflow-y-auto px-5 pb-28 pt-5">
+          <div class="mb-3 flex items-center justify-between">
+            <button class="flex items-center gap-1.5 text-[16px] font-semibold text-[#596073]" @click="editing = !editing">列表編輯 <span class="text-[15px]">✎</span></button>
+            <div class="flex items-center gap-3 text-[14px] text-[#737688]"><span>4/200</span><button class="flex items-center gap-1">篩選 <span>⌄</span></button><button class="flex items-center gap-1">排序 <span>↕</span></button></div>
+          </div>
+
+          <div class="space-y-3">
+            <article v-for="card in filteredCards" :key="card.id" class="safe-shadow rounded-[10px] bg-white px-4 py-4">
+              <div class="mb-3 flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="mb-1 flex items-center gap-2"><span class="rounded bg-[#eaf2ff] px-1.5 py-0.5 text-[12px] font-medium text-blue">範本</span><h2 class="truncate text-[16px] font-semibold text-[#373b4d]">{{ card.title }}</h2></div>
+                  <p class="text-[12px] text-[#737688]">{{ card.description }} <span class="mx-1">·</span> {{ card.author }}</p>
+                </div>
+                <button @click="togglePin(card)" :class="card.pinned ? 'text-blue' : 'text-[#a2a5b0]'" class="shrink-0 text-[18px]" aria-label="置頂">{{ card.pinned ? '★' : '☆' }}</button>
+              </div>
+              <div class="flex items-center justify-between border-t border-[#f0f0f3] pt-3 text-[12px] text-[#737688]"><span>{{ card.category }}</span><button class="font-medium text-blue">查看範本 <span class="ml-1">›</span></button></div>
+            </article>
+            <p v-if="filteredCards.length === 0" class="py-16 text-center text-sm text-muted">找不到符合的範本</p>
+          </div>
+        </section>
+
+        <button @click="scrollTop" class="absolute bottom-6 right-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue text-[26px] text-white shadow-lg shadow-blue/30 transition-transform hover:scale-105" aria-label="回到頂端">⌃</button>
+      </main>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script>
+      const { createApp, ref, computed } = Vue;
+      createApp({
+        setup() {
+          const tabs = ['詢問意願', '面試邀約', '面試異動', '錄取通知', '感謝函'];
+          const activeTab = ref('詢問意願');
+          const editing = ref(false);
+          const scrollArea = ref(null);
+          const cards = ref([
+            { id: 1, title: '詢問工作條件接受度', description: '*', author: '建立者帳號名稱', category: '詢問意願', pinned: true },
+            { id: 2, title: '保持人才聯繫', description: '*', author: '建立者帳號名稱', category: '詢問意願', pinned: true },
+            { id: 3, title: '詢問工作條件接受度 2', description: '*', author: '建立者帳號名稱', category: '詢問意願', pinned: false },
+            { id: 4, title: '推薦其他職缺', description: '*', author: '建立者帳號名稱', category: '詢問意願', pinned: false },
+            { id: 5, title: '匯入職缺', description: '*', author: '建立者帳號名稱', category: '詢問意願', pinned: false }
+          ]);
+          const filteredCards = computed(() => cards.value.filter(card => card.category === activeTab.value));
+          const togglePin = card => card.pinned = !card.pinned;
+          const scrollTop = () => scrollArea.value?.scrollTo({ top: 0, behavior: 'smooth' });
+          return { tabs, activeTab, editing, scrollArea, filteredCards, togglePin, scrollTop };
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>

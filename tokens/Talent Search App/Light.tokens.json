@@ -1,0 +1,107 @@
+{
+  "General": {
+    "White": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#ffffff"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Gray-Primary": {
+      "$type": "color",
+      "$value": "{System.Gray.700}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Primary": {
+      "$type": "color",
+      "$value": "{System.Primary.400}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "System": {
+    "Gray": {
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.419608,
+            0.419608,
+            0.419608
+          ],
+          "alpha": 1,
+          "hex": "#6b6b6b"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.168627,
+            0.168627,
+            0.168627
+          ],
+          "alpha": 1,
+          "hex": "#2b2b2b"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Primary": {
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.235294,
+            0.560784,
+            0.956863
+          ],
+          "alpha": 1,
+          "hex": "#3c8ff4"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Talent Search App",
+      "mode": "Light",
+      "default": true
+    }
+  }
+}

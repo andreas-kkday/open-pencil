@@ -1,7 +1,6 @@
 import { uniq } from 'es-toolkit/array'
 
 import { ResourceCache } from '#core/cache/resource'
-import { DEFAULT_FONT_FAMILY } from '#core/constants'
 import { EMOJI_METRICS_FAMILY } from '#core/text/emoji'
 import type { FamilyFace } from '#core/text/font/faces'
 import { fontManager, fontWeightMatchOrder, weightToStyle } from '#core/text/fonts'
@@ -36,11 +35,16 @@ export function resolveParagraphFontFamilies(
   const renderCJKFallbacks = cjkFallbacks.map((family) =>
     fontManager.renderFamily(family, 'Regular')
   )
-  const key = `${renderPrimary}\0${renderArabicFallbacks.join('\0')}\0${renderCJKFallbacks.join('\0')}`
+  const renderSubstituteFamilies = fontManager.substituteFamilies().map((family) =>
+    fontManager.renderFamily(family, 'Regular')
+  )
+  const key = `${renderPrimary}\0${renderSubstituteFamilies.join('\0')}\0${renderArabicFallbacks.join(
+    '\0'
+  )}\0${renderCJKFallbacks.join('\0')}`
   const cached = familiesCache.peek(key)
   if (cached) return cached
   const families = [renderPrimary]
-  if (primary !== DEFAULT_FONT_FAMILY) families.push(DEFAULT_FONT_FAMILY)
+  families.push(...renderSubstituteFamilies.filter((family) => family !== renderPrimary))
   // Emoji come last, so a character a script's font has stays in that font.
   families.push(...renderArabicFallbacks, ...renderCJKFallbacks, EMOJI_METRICS_FAMILY)
   const resolved = uniq(families)

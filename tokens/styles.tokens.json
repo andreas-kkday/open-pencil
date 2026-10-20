@@ -1,0 +1,1245 @@
+{
+  "中文": {
+    "Tag & Label": {
+      "10": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "Inter",
+          "fontSize": {
+            "value": 10,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.210227,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 10,
+              "lineHeight": 12.102272987365723,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "12": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 12,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.4,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 12,
+              "lineHeight": 16.799999237060547,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Subhead": {
+      "16": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.5,
+          "letterSpacing": {
+            "value": 0.48,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 24,
+              "letterSpacing": 0.48,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "18": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 18,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.555556,
+          "letterSpacing": {
+            "value": 0.54,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 18,
+              "lineHeight": 28,
+              "letterSpacing": 0.54,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "20": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 20,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.6,
+          "letterSpacing": {
+            "value": 0.6,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 20,
+              "lineHeight": 32,
+              "letterSpacing": 0.6,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Button Text": {
+      "14": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.428571,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 14,
+              "lineHeight": 20,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "16": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.5,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 24,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "18": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 18,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.555556,
+          "letterSpacing": {
+            "value": 0.54,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 18,
+              "lineHeight": 28,
+              "letterSpacing": 0.54,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Caption": {
+      "12": {
+        "Regular": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "PingFang TC",
+            "fontSize": {
+              "value": 12,
+              "unit": "px"
+            },
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "text": {
+                "fontFamily": "PingFang TC",
+                "fontWeight": 400,
+                "italic": false,
+                "fontSize": 12,
+                "lineHeight": 18,
+                "letterSpacing": 0,
+                "textDecoration": "NONE",
+                "textCase": "ORIGINAL"
+              }
+            }
+          }
+        },
+        "Semibold": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "PingFang TC",
+            "fontSize": {
+              "value": 12,
+              "unit": "px"
+            },
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "text": {
+                "fontFamily": "PingFang TC",
+                "fontWeight": 600,
+                "italic": false,
+                "fontSize": 12,
+                "lineHeight": 18,
+                "letterSpacing": 0,
+                "textDecoration": "NONE",
+                "textCase": "ORIGINAL"
+              }
+            }
+          }
+        },
+        "$root": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "PingFang TC",
+            "fontSize": {
+              "value": 12,
+              "unit": "px"
+            },
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "text": {
+                "fontFamily": "PingFang TC",
+                "fontWeight": 400,
+                "italic": false,
+                "fontSize": 12,
+                "lineHeight": 18,
+                "letterSpacing": 0,
+                "textDecoration": "NONE",
+                "textCase": "ORIGINAL"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Body": {
+      "14": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.714286,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 14,
+              "lineHeight": 24,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "16": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.75,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 28,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "18": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 18,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.555556,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 18,
+              "lineHeight": 28,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Display": {
+      "48": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 48,
+            "unit": "px"
+          },
+          "fontWeight": 600,
+          "lineHeight": 1.4,
+          "letterSpacing": {
+            "value": 1.44,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 600,
+              "italic": false,
+              "fontSize": 48,
+              "lineHeight": 67.19999694824219,
+              "letterSpacing": 1.44,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Footnote": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "SF Pro",
+        "fontSize": {
+          "value": 13,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.384615,
+        "letterSpacing": {
+          "value": -0.08,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "text": {
+            "fontFamily": "SF Pro",
+            "fontWeight": 400,
+            "italic": false,
+            "fontSize": 13,
+            "lineHeight": 18,
+            "letterSpacing": -0.07999999821186066,
+            "textDecoration": "NONE",
+            "textCase": "ORIGINAL"
+          }
+        }
+      }
+    }
+  },
+  "Body": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "SF Pro",
+        "fontSize": {
+          "value": 17,
+          "unit": "px"
+        },
+        "fontWeight": 400,
+        "lineHeight": 1.294118,
+        "letterSpacing": {
+          "value": -0.43,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "text": {
+            "fontFamily": "SF Pro",
+            "fontWeight": 400,
+            "italic": false,
+            "fontSize": 17,
+            "lineHeight": 22,
+            "letterSpacing": -0.4300000071525574,
+            "textDecoration": "NONE",
+            "textCase": "ORIGINAL"
+          }
+        }
+      }
+    },
+    "Emphasized": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "SF Pro",
+        "fontSize": {
+          "value": 17,
+          "unit": "px"
+        },
+        "fontWeight": 600,
+        "lineHeight": 1.294118,
+        "letterSpacing": {
+          "value": -0.43,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "text": {
+            "fontFamily": "SF Pro",
+            "fontWeight": 600,
+            "italic": false,
+            "fontSize": 17,
+            "lineHeight": 22,
+            "letterSpacing": -0.4300000071525574,
+            "textDecoration": "NONE",
+            "textCase": "ORIGINAL"
+          }
+        }
+      }
+    }
+  },
+  "Shadow": {
+    "elevation-shadow-overflow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.16,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.12,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.openpencil": {
+          "effects": [
+            {
+              "type": "DROP_SHADOW",
+              "visible": true,
+              "radius": 8,
+              "boundVariables": {},
+              "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0.1599999964237213
+              },
+              "offset": {
+                "x": 0,
+                "y": 0
+              },
+              "spread": 0,
+              "blendMode": "NORMAL",
+              "showShadowBehindNode": true
+            },
+            {
+              "type": "DROP_SHADOW",
+              "visible": true,
+              "radius": 1,
+              "boundVariables": {},
+              "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0.11999999731779099
+              },
+              "offset": {
+                "x": 0,
+                "y": 0
+              },
+              "spread": 0,
+              "blendMode": "NORMAL",
+              "showShadowBehindNode": true
+            }
+          ],
+          "name": "Shadow/elevation.shadow.overflow"
+        }
+      }
+    },
+    "elevation-shadow-overlay": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.1,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 6,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.2,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 10,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.openpencil": {
+          "name": "Shadow/elevation.shadow.overlay"
+        }
+      }
+    },
+    "elevation-shadow-raised-lg-brand": {
+      "$type": "shadow",
+      "$value": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0.470588,
+            0.67451,
+            1
+          ],
+          "alpha": 0.5,
+          "hex": "#78acff"
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 18,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "name": "Shadow/elevation.shadow.raised.lg.brand"
+        }
+      }
+    },
+    "elevation-shadow-shadow-md": {
+      "$type": "shadow",
+      "$value": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.26,
+          "hex": "#000000"
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 7,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "name": "Shadow/elevation.shadow.shadow.md"
+        }
+      }
+    },
+    "elevation-shadow-shadow-sm": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.14,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 4,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.1,
+            "hex": "#000000"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 3,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "dev.openpencil": {
+          "effects": [
+            {
+              "type": "DROP_SHADOW",
+              "visible": true,
+              "radius": 4,
+              "boundVariables": {},
+              "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0.14000000059604645
+              },
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "spread": 0,
+              "blendMode": "NORMAL",
+              "showShadowBehindNode": true
+            },
+            {
+              "type": "DROP_SHADOW",
+              "visible": true,
+              "radius": 3,
+              "boundVariables": {},
+              "color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0.10000000149011612
+              },
+              "offset": {
+                "x": 0,
+                "y": 1
+              },
+              "spread": 0,
+              "blendMode": "NORMAL",
+              "showShadowBehindNode": true
+            }
+          ],
+          "name": "Shadow/elevation.shadow.shadow.sm"
+        }
+      }
+    }
+  },
+  "英文": {
+    "Subhead": {
+      "20": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "SF Pro",
+          "fontSize": {
+            "value": 20,
+            "unit": "px"
+          },
+          "fontWeight": 700,
+          "lineHeight": 1.6,
+          "letterSpacing": {
+            "value": 0.6,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "SF Pro",
+              "fontWeight": 700,
+              "italic": false,
+              "fontSize": 20,
+              "lineHeight": 32,
+              "letterSpacing": 0.6,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Body": {
+      "14": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "PingFang TC",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.714286,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "PingFang TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 14,
+              "lineHeight": 24,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "16": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "SF Pro",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.75,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "SF Pro",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 28,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Button Text": {
+      "14": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "SF Pro",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": 700,
+          "lineHeight": 1.428571,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "SF Pro",
+              "fontWeight": 700,
+              "italic": false,
+              "fontSize": 14,
+              "lineHeight": 20,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    },
+    "Caption": {
+      "12": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "SF Pro",
+          "fontSize": {
+            "value": 12,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.5,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "SF Pro",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 12,
+              "lineHeight": 18,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    }
+  },
+  "iOS": {
+    "Body": {
+      "14": {
+        "CH-Regular": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "PingFang TC",
+            "fontSize": {
+              "value": 14,
+              "unit": "px"
+            },
+            "fontWeight": 400,
+            "lineHeight": 1.428571,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "text": {
+                "fontFamily": "PingFang TC",
+                "fontWeight": 400,
+                "italic": false,
+                "fontSize": 14,
+                "lineHeight": 20,
+                "letterSpacing": 0,
+                "textDecoration": "NONE",
+                "textCase": "ORIGINAL"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "elevation-shadow-shadow-md": {
+    "$type": "shadow",
+    "$value": {
+      "color": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.26,
+        "hex": "#000000"
+      },
+      "offsetX": {
+        "value": 0,
+        "unit": "px"
+      },
+      "offsetY": {
+        "value": 1,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 7,
+        "unit": "px"
+      },
+      "spread": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "name": "elevation.shadow.shadow.md"
+      }
+    }
+  },
+  "Caption": {
+    "16": {
+      "Regular": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "Open Sans",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 400,
+          "lineHeight": 1.6875,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "Open Sans",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 27,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      },
+      "Bold": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "Open Sans",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": 700,
+          "lineHeight": 1.6875,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "Open Sans",
+              "fontWeight": 700,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 27,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Chinese": {
+    "Body": {
+      "16-Regular": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{Body.16.Font CH}",
+          "fontSize": "{Body.16.Size}",
+          "fontWeight": 400,
+          "lineHeight": 1.5625,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "text": {
+              "fontFamily": "Noto Sans TC",
+              "fontWeight": 400,
+              "italic": false,
+              "fontSize": 16,
+              "lineHeight": 25,
+              "letterSpacing": 0,
+              "textDecoration": "NONE",
+              "textCase": "ORIGINAL"
+            },
+            "bindings": {
+              "fontFamily": "{Body.16.Font CH}",
+              "fontSize": "{Body.16.Size}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -169,6 +169,7 @@ export {
   styleToVariant,
   type DownloadedFontCache,
   type FontInfo,
+  type FontManagerOptions,
   type FontLoadedSource,
   type LocalFontAccessState
 } from './text/fonts'

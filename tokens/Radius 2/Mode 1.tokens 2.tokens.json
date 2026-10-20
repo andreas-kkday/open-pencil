@@ -1,0 +1,99 @@
+{
+  "Radius S 6": {
+    "$type": "dimension",
+    "$value": {
+      "value": 6,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Radius XS 4": {
+    "$type": "dimension",
+    "$value": {
+      "value": 4,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Radius M 8": {
+    "$type": "dimension",
+    "$value": {
+      "value": 8,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Radius Full Round 360": {
+    "$type": "dimension",
+    "$value": {
+      "value": 360,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Radius XL 14": {
+    "$type": "dimension",
+    "$value": {
+      "value": 14,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Radius XXL 20": {
+    "$type": "dimension",
+    "$value": {
+      "value": 20,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Radius",
+      "mode": "Mode 1.tokens 2",
+      "default": true
+    }
+  }
+}

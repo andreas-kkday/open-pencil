@@ -1,0 +1,29 @@
+{
+  "Text": {
+    "Neutral": {
+      "Hint": {
+        "$type": "color",
+        "$value": "{1111.Black.400}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "1111/Black/400",
+            "targetVariableSetName": "Primitive"
+          },
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "System",
+      "mode": "Candidate",
+      "default": true
+    }
+  }
+}

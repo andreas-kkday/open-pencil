@@ -1,0 +1,143 @@
+{
+  "Color Palette": {
+    "Grey": {
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.929412,
+            0.929412,
+            0.929412
+          ],
+          "alpha": 1,
+          "hex": "#ededed"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.74902,
+            0.74902,
+            0.74902
+          ],
+          "alpha": 1,
+          "hex": "#bfbfbf"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.584314,
+            0.584314,
+            0.584314
+          ],
+          "alpha": 1,
+          "hex": "#959595"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.309804,
+            0.309804,
+            0.309804
+          ],
+          "alpha": 1,
+          "hex": "#4f4f4f"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.082353,
+            0.082353,
+            0.082353
+          ],
+          "alpha": 1,
+          "hex": "#151515"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "Basic": {
+    "Grey-Secondary": {
+      "$type": "color",
+      "$value": "{Color Palette.Grey.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Grey-Primary": {
+      "$type": "color",
+      "$value": "{Color Palette.Grey.900}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Grey-Tertiary": {
+      "$type": "color",
+      "$value": "{Color Palette.Grey.400}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Border": {
+    "Grey": {
+      "$type": "color",
+      "$value": "{Color Palette.Grey.50}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Color",
+      "mode": "Light Mode",
+      "default": true
+    }
+  }
+}

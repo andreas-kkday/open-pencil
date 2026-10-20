@@ -105,6 +105,8 @@
     "test:dupes": "jscpd packages/scene-graph/src packages/pen/src packages/design-jsx/src packages/emit/src packages/core/src packages/cli/src packages/feedback/src packages/cloud/src packages/dom-css/src packages/fig/src src --min-lines 5 --min-tokens 50 --format typescript --threshold 0",
     "test:packages": "bun tools/checks/package-quality/src/cli.ts verify",
     "build:packages": "bun tools/release/package-artifacts/src/build.ts",
+    "clean": "rm -rf dist packages/*/dist .publish .npm-packages coverage playwright-report test-results",
+    "install:global": "bun run build:packages && bun --filter @open-pencil/release-packages-tools prepare-publish-dirs && bun --filter @open-pencil/release-packages-tools pack && bun install --global \"$PWD\"/.npm-packages/*.tgz",
     "open-pencil": "bun packages/cli/src/index.ts",
     "docs:dev": "bun --filter @open-pencil/docs dev",
     "docs:build": "bun --filter @open-pencil/docs build",

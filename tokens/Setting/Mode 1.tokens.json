@@ -1,0 +1,73 @@
+{
+  "Spacing": {
+    "100": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Radius": {
+    "200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Setting",
+      "mode": "Mode 1",
+      "default": true
+    }
+  }
+}

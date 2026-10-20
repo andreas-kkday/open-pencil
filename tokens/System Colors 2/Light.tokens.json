@@ -1,0 +1,259 @@
+{
+  "Miscellaneous": {
+    "_Kit Section Fill": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.960784,
+          0.960784,
+          0.960784
+        ],
+        "alpha": 1,
+        "hex": "#f5f5f5"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Bar border": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.3,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Mode": {
+    "$type": "string",
+    "$value": "Light",
+    "$extensions": {
+      "dev.openpencil": {
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "Grays": {
+    "Black": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "White": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#ffffff"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Labels": {
+    "Tertiary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.235294,
+          0.235294,
+          0.262745
+        ],
+        "alpha": 0.3,
+        "hex": "#3c3c43"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Primary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Quaternary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.235294,
+          0.235294,
+          0.262745
+        ],
+        "alpha": 0.18,
+        "hex": "#3c3c43"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Secondary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.235294,
+          0.235294,
+          0.262745
+        ],
+        "alpha": 0.6,
+        "hex": "#3c3c43"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Backgrounds": {
+    "Primary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#ffffff"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Colors": {
+    "Blue": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0.478431,
+          1
+        ],
+        "alpha": 1,
+        "hex": "#007aff"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Fills": {
+    "Tertiary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.470588,
+          0.470588,
+          0.501961
+        ],
+        "alpha": 0.12,
+        "hex": "#787880"
+      },
+      "$extensions": {
+        "dev.openpencil": {
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "System Colors",
+      "mode": "Light",
+      "default": true
+    }
+  }
+}

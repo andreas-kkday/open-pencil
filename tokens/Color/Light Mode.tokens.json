@@ -1,0 +1,3001 @@
+{
+  "System": {
+    "Gray": {
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.92549,
+            0.92549,
+            0.94902
+          ],
+          "alpha": 1,
+          "hex": "#ececf2"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.866667,
+            0.87451,
+            0.909804
+          ],
+          "alpha": 1,
+          "hex": "#dddfe8"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.752941,
+            0.764706,
+            0.815686
+          ],
+          "alpha": 1,
+          "hex": "#c0c3d0"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.631373,
+            0.647059,
+            0.705882
+          ],
+          "alpha": 1,
+          "hex": "#a1a5b4"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.537255,
+            0.556863,
+            0.631373
+          ],
+          "alpha": 1,
+          "hex": "#898ea1"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.45098,
+            0.462745,
+            0.529412
+          ],
+          "alpha": 1,
+          "hex": "#737687"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.352941,
+            0.364706,
+            0.435294
+          ],
+          "alpha": 1,
+          "hex": "#5a5d6f"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.270588,
+            0.282353,
+            0.345098
+          ],
+          "alpha": 1,
+          "hex": "#454858"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.215686,
+            0.231373,
+            0.301961
+          ],
+          "alpha": 1,
+          "hex": "#373b4d"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Secondary": {
+      "Magenta": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.87451,
+              0.92549
+            ],
+            "alpha": 1,
+            "hex": "#ffdfec"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.780392,
+              0.870588
+            ],
+            "alpha": 1,
+            "hex": "#ffc7de"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.592157,
+              0.760784
+            ],
+            "alpha": 1,
+            "hex": "#ff97c2"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.278431,
+              0.576471
+            ],
+            "alpha": 1,
+            "hex": "#ff4793"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.960784,
+              0.164706,
+              0.494118
+            ],
+            "alpha": 1,
+            "hex": "#f52a7e"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Orange": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.929412,
+              0.85098
+            ],
+            "alpha": 1,
+            "hex": "#ffedd9"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.87451,
+              0.741176
+            ],
+            "alpha": 1,
+            "hex": "#ffdfbd"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.713726,
+              0.411765
+            ],
+            "alpha": 1,
+            "hex": "#ffb669"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.647059,
+              0.270588
+            ],
+            "alpha": 1,
+            "hex": "#ffa545"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.956863,
+              0.568627,
+              0.152941
+            ],
+            "alpha": 1,
+            "hex": "#f49127"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.894118,
+              0.498039,
+              0.070588
+            ],
+            "alpha": 1,
+            "hex": "#e47f12"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Yellow": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.972549,
+              0.847059
+            ],
+            "alpha": 1,
+            "hex": "#fff8d8"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.87451,
+              0.305882
+            ],
+            "alpha": 1,
+            "hex": "#ffdf4e"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.823529,
+              0.039216
+            ],
+            "alpha": 1,
+            "hex": "#ffd20a"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.898039,
+              0.733333,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#e5bb00"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Lime": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.92549,
+              0.964706,
+              0.729412
+            ],
+            "alpha": 1,
+            "hex": "#ecf6ba"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.788235,
+              0.905882,
+              0.192157
+            ],
+            "alpha": 1,
+            "hex": "#c9e731"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.737255,
+              0.858824,
+              0.137255
+            ],
+            "alpha": 1,
+            "hex": "#bcdb23"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.423529,
+              0.501961,
+              0.027451
+            ],
+            "alpha": 1,
+            "hex": "#6c8007"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Green": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.858824,
+              0.960784,
+              0.854902
+            ],
+            "alpha": 1,
+            "hex": "#dbf5da"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.756863,
+              0.937255,
+              0.752941
+            ],
+            "alpha": 1,
+            "hex": "#c1efc0"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.419608,
+              0.788235,
+              0.411765
+            ],
+            "alpha": 1,
+            "hex": "#6bc969"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.262745,
+              0.768627,
+              0.254902
+            ],
+            "alpha": 1,
+            "hex": "#43c441"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.133333,
+              0.72549,
+              0.117647
+            ],
+            "alpha": 1,
+            "hex": "#22b91e"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Blue": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.866667,
+              0.960784,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ddf5ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.490196,
+              0.847059,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#7dd8ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.368627,
+              0.792157,
+              0.976471
+            ],
+            "alpha": 1,
+            "hex": "#5ecaf9"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "800": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.058824,
+              0.545098,
+              0.752941
+            ],
+            "alpha": 1,
+            "hex": "#0f8bc0"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Geek": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.843137,
+              0.901961,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#d7e6ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.74902,
+              0.839216,
+              0.984314
+            ],
+            "alpha": 1,
+            "hex": "#bfd6fb"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.596078,
+              0.752941,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#98c0ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.419608,
+              0.643137,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#6ba4ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.254902,
+              0.541176,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#418aff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.141176,
+              0.466667,
+              0.992157
+            ],
+            "alpha": 1,
+            "hex": "#2477fd"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Purple": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.968627,
+              0.894118,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#f7e4ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.827451,
+              0.462745,
+              0.984314
+            ],
+            "alpha": 1,
+            "hex": "#d376fb"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.709804,
+              0.247059,
+              0.905882
+            ],
+            "alpha": 1,
+            "hex": "#b53fe7"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.627451,
+              0.164706,
+              0.827451
+            ],
+            "alpha": 1,
+            "hex": "#a02ad3"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Red": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.839205,
+              0.839205
+            ],
+            "alpha": 1,
+            "hex": "#ffd6d6"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.893743,
+              0.383627,
+              0.383627
+            ],
+            "alpha": 1,
+            "hex": "#e46262"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.84328,
+              0.213528,
+              0.213528
+            ],
+            "alpha": 1,
+            "hex": "#d73636"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      }
+    },
+    "brand": {
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.945098,
+            0.968627,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#f1f7ff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.854902,
+            0.921569,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#daebff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.729412,
+            0.839216,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#bad6ff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.086275,
+            0.458824,
+            0.968627
+          ],
+          "alpha": 1,
+          "hex": "#1675f7"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.035294,
+            0.392157,
+            0.878431
+          ],
+          "alpha": 1,
+          "hex": "#0964e0"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Base": {
+      "White": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Opacity": {
+      "Black-10": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.1,
+          "hex": "#000000"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Black-30": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.3,
+          "hex": "#000000"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Black-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.2,
+          "hex": "#000000"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Gray-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.215686,
+            0.231373,
+            0.301961
+          ],
+          "alpha": 0.7,
+          "hex": "#373b4d"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "White-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.7,
+          "hex": "#ffffff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "White-50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.5,
+          "hex": "#ffffff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "Color": {
+    "Background": {
+      "accent": {
+        "gray": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Gray.100}",
+              "$description": "Use for gray backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{System.Gray.200}",
+              "$description": "Use for gray backgrounds when the color carries no semantic meaning, such as lightweight tags in a pressed state.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Gray.500}",
+              "$description": "Use for vibrant gray backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bolder": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Gray.700}",
+              "$description": "Use for gray backgrounds when there is no meaning tied to the color.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{System.Gray.800}",
+              "$description": "Use for gray backgrounds when there is no meaning tied to the color in a pressed state.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "subtle": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Gray.300}",
+              "$description": "Use for vibrant gray backgrounds when there is no meaning tied to the color. Reserved for when you only want a hint of color.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "boldest": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Gray.900}",
+              "$description": "Use for gray backgrounds when there is no semantic meaning tied to the color, such as secondary buttons.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "magenta": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Magenta.100}",
+              "$description": "Use for magenta backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Magenta.500}",
+              "$description": "Use for vibrant magenta backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "orange": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Orange.100}",
+              "$description": "Use for orange backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Orange.500}",
+              "$description": "Use for vibrant orange backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "yellow": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Yellow.100}",
+              "$description": "Use for yellow backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bolder": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Yellow.700}",
+              "$description": "Use for yellow backgrounds when there is no meaning tied to the color.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Yellow.500}",
+              "$description": "Use for vibrant yellow backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "lime": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Lime.100}",
+              "$description": "Use for lime backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Lime.500}",
+              "$description": "Use for vibrant lime backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "green": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Green.100}",
+              "$description": "Use for green backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Green.500}",
+              "$description": "Use for vibrant green backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "blue": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Blue.100}",
+              "$description": "Use for blue backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Blue.500}",
+              "$description": "Use for vibrant blue backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "geek": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Geek.100}",
+              "$description": "Use for geek backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Geek.500}",
+              "$description": "Use for vibrant geek backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "subtle": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Geek.300}",
+              "$description": "Use for vibrant geek backgrounds when there is no meaning tied to the color. Reserved for when you only want a hint of color.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "purple": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Purple.100}",
+              "$description": "Use for purple backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Purple.500}",
+              "$description": "Use for vibrant purple backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "Red": {
+          "subtler": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Red.100}",
+              "$description": "Use for purple backgrounds when the color carries no semantic meaning, such as lightweight tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "bold": {
+            "default": {
+              "$type": "color",
+              "$value": "{System.Secondary.Red.500}",
+              "$description": "Use for vibrant purple backgrounds when there is no meaning tied to the color, such as colored tags.",
+              "$extensions": {
+                "dev.openpencil": {
+                  "scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL"
+                  ],
+                  "hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "brand": {
+        "subtlest": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.brand.100}",
+            "$description": "Use for backgrounds of elements that reinforce the brand, such as filters, text fields, and sheet tables.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "Pressed": {
+            "$type": "color",
+            "$value": "{System.brand.200}",
+            "$description": "Pressed state of color/background/brand/subtlest/default.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.brand.500}",
+          "$description": "Use for the background of elements used to reinforce our brand.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{System.brand.600}",
+          "$description": "Pressed state of color/background/brand/default.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "subtler": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.brand.200}",
+            "$description": "Use for the background of elements used to reinforce our brand, such as tertiary buttons.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "Pressed": {
+            "$type": "color",
+            "$value": "{System.brand.300}",
+            "$description": "Pressed state of color/background/brand/subtler/default.",
+            "$extensions": {
+              "dev.openpencil": {
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.brand.300}",
+            "$description": "Use for backgrounds of selected elements or light surfaces, such as panels or containers.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "bold": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.brand.600}",
+            "$description": "Use for the background while pressing elements used to reinforce our brand, but with more emphasis.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "danger": {
+        "bolder": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Secondary.Magenta.500}",
+            "$description": "A vibrant background option for communicating critical information, such as in danger buttons and error banners.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{System.Secondary.Magenta.600}",
+            "$description": "A vibrant background option for communicating critical information, such as in danger buttons and error banners in a pressed state.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.100}",
+          "$description": "Use for backgrounds communicating critical information, such in error section messages.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.200}",
+          "$description": "Use for backgrounds communicating critical information, such in error section messages in a pressed state.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "bold": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Secondary.Magenta.300}",
+            "$description": "A more prominent background option communicating critical information, such as in danger lozenges.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "White": {
+        "default": {
+          "$type": "color",
+          "$value": "{System.Base.White}",
+          "$description": "Use for white backgrounds as an inverse surface to ensure contrast and readability on dark surfaces.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{System.Gray.100}",
+          "$description": "Use for white backgrounds as an inverse surface to ensure contrast and readability on dark surfaces.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "neutral": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Opacity.Black-10}",
+            "$description": "Use for the background of elements that appear to have no background in a resting state, such as subtle buttons and menu items.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Opacity.Black-30}",
+          "$description": "The default background for neutral elements, such as default buttons.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "gray": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Opacity.Gray-70}",
+            "$description": "Use for the background of transient notification components, such as Snackbars and Toasts.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "inverse": {
+          "pressed": {
+            "$type": "color",
+            "$value": "{System.Opacity.White-70}",
+            "$description": "Use for backgrounds of elements on a bold background, such as in the buttons on spotlight cards.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "default": {
+            "$type": "color",
+            "$value": "{System.Opacity.White-50}",
+            "$description": "Use for backgrounds of elements on a bold background, such as in the buttons on spotlight cards.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{System.Gray.100}",
+        "$description": "Use for backgrounds of elements in a disabled state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Black": {
+        "default": {
+          "$type": "color",
+          "$value": "{System.Base.Black}",
+          "$description": "Use for black backgrounds when maximum contrast and emphasis are required.",
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "information": {
+        "bolder": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Secondary.Geek.500}",
+            "$description": "A vibrant background option for communicating information or something in-progress.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.100}",
+          "$description": "Use for backgrounds communicating information or something in-progress, such as in information section messages.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.200}",
+          "$description": "Use for backgrounds communicating information or something in-progress, such as in information section messages in a pressed state.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "input": {
+        "brand": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.brand.100}",
+            "$description": "Use for the background of form UI elements—such as text fields, checkboxes, and radio buttons—to highlight brand identity and indicate interface hierarchy.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{System.brand.200}",
+            "$description": "Use for the background of form UI elements—such as text fields, checkboxes, and radio buttons—in the pressed state, to highlight brand identity and indicate interface hierarchy.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "Success": {
+        "bolder": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Secondary.Green.500}",
+            "$description": "A vibrant background option for communicating a favorable outcome, such as in checked toggles.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Green.100}",
+          "$description": "Use for backgrounds communicating a favorable outcome, such as in success section messages.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Warning": {
+        "bolder": {
+          "default": {
+            "$type": "color",
+            "$value": "{System.Secondary.Orange.500}",
+            "$description": "A vibrant background option for communicating caution, such as in warning buttons and warning banners.",
+            "$extensions": {
+              "dev.openpencil": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Orange.100}",
+          "$description": "Use for backgrounds communicating caution, such as in warning section messages.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      }
+    },
+    "Border": {
+      "default": {
+        "$type": "color",
+        "$value": "{System.Gray.400}",
+        "$description": "Use to visually separate or define boundaries of UI elements, such as cards, side panels, or input fields.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "danger": {
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.500}",
+          "$description": "Use for borders communicating critical information, such as the borders on invalid text fields.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.200}",
+          "$description": "Use for borders that indicate errors or critical states, such as alert bars.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "accent": {
+        "orange": {
+          "$type": "color",
+          "$value": "{System.Secondary.Orange.400}",
+          "$description": "Use for orange borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "yellow": {
+          "$type": "color",
+          "$value": "{System.Secondary.Yellow.700}",
+          "$description": "Use for yellow borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "lime": {
+          "$type": "color",
+          "$value": "{System.Secondary.Lime.600}",
+          "$description": "Use for lime borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "green": {
+          "$type": "color",
+          "$value": "{System.Secondary.Green.400}",
+          "$description": "Use for green borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "blue": {
+          "$type": "color",
+          "$value": "{System.Secondary.Blue.400}",
+          "$description": "Use for blue borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "geek": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.400}",
+          "$description": "Use for geek borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "purple": {
+          "$type": "color",
+          "$value": "{System.Secondary.Purple.400}",
+          "$description": "Use for purple borders on non-bold backgrounds when there is no meaning tied to the color.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "Red": {
+          "$type": "color",
+          "$value": "{System.Secondary.Red.400}",
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{System.brand.500}",
+        "$description": "Use for borders or visual indicators of elements that reinforce the brand, such as primary buttons.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtler": {
+        "$type": "color",
+        "$value": "{System.Gray.200}",
+        "$description": "Use for subtle separation of low-priority UI elements, such as Icon Button in the pressed state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "bolder": {
+        "$type": "color",
+        "$value": "{System.Gray.600}",
+        "$description": "Use for prominent separation of high-priority UI elements, such as modal borders, active panels, or major layout dividers.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "bold": {
+        "$type": "color",
+        "$value": "{System.Gray.500}",
+        "$description": "Use for standard separation of medium-priority UI elements, such as main cards, primary side panels, or list dividers.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{System.Gray.300}",
+        "$description": "Use for subtle separation of low-priority UI elements, such as background cards, minor panels, or content grouping within a card.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{System.Gray.300}",
+        "$description": "Use for borders of UI elements that are inactive or disabled, such as disabled buttons, input fields, or non-interactive cards.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "success": {
+        "subtle": {
+          "$type": "color",
+          "$value": "{System.Secondary.Green.200}",
+          "$description": "Use for borders communicating a favorable outcome, such as the borders on validated alert bars.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "information": {
+        "subtle": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.200}",
+          "$description": "Use for borders that communicate informational or in-progress states, such as info alert bars.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.500}",
+          "$description": "Use for borders communicating information or something in-progress.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "warning": {
+        "subtle": {
+          "$type": "color",
+          "$value": "{System.Secondary.Orange.200}",
+          "$description": "Use for borders communicating caution.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "boldest": {
+        "$type": "color",
+        "$value": "{System.Gray.900}",
+        "$description": "Use for prominent separation of high-priority UI elements, such as tip button borders.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtlest": {
+        "$type": "color",
+        "$value": "{System.Gray.100}",
+        "$description": "Use for subtle separation of low-priority UI elements, such as Icon Button.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Text": {
+      "subtler": {
+        "$type": "color",
+        "$value": "{System.Gray.600}",
+        "$description": "Use for tertiary text, such as meta-data, Prompt, breadcrumbs, input field placeholder and helper text.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "accent": {
+        "magenta": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.600}",
+          "$description": "Use for magenta text on subtle magenta accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "orange": {
+          "$type": "color",
+          "$value": "{System.Secondary.Orange.600}",
+          "$description": "Use for orange text on subtle orange accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "yellow": {
+          "$type": "color",
+          "$value": "{System.Secondary.Yellow.900}",
+          "$description": "Use for yellow text on subtle yellow accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "lime": {
+          "$type": "color",
+          "$value": "{System.Secondary.Lime.900}",
+          "$description": "Use for lime text on subtle lime accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "green": {
+          "$type": "color",
+          "$value": "{System.Secondary.Green.600}",
+          "$description": "Use for green text on subtle green accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "blue": {
+          "$type": "color",
+          "$value": "{System.Secondary.Blue.800}",
+          "$description": "Use for blue text on subtle blue accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "geek": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.600}",
+          "$description": "Use for geek text on subtle geek accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "purple": {
+          "$type": "color",
+          "$value": "{System.Secondary.Purple.600}",
+          "$description": "Use for purple text on subtle purple accent backgrounds when there is no meaning tied to the color, such as colored tags.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "Red": {
+          "$type": "color",
+          "$value": "{System.Secondary.Red.500}",
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{System.brand.500}",
+        "$description": "Use for text that reinforces our brand.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{System.Base.White}",
+        "$description": "Use for text on bold backgrounds.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{System.Gray.700}",
+        "$description": "Use for secondary text, such as navigation, subtle button links, input field labels, and all caps subheadings.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{System.Gray.900}",
+        "$description": "Use for primary text, such as body copy, sentence case headers, and buttons.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{System.brand.600}",
+        "$description": "Use for text in selected or opened states, such as tabs and dropdown buttons.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{System.Secondary.Magenta.500}",
+        "$description": "Use for critical text, such as input field error messaging.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{System.Gray.300}",
+        "$description": "Use for text in a disabled state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "link": {
+        "default": {
+          "$type": "color",
+          "$value": "{System.brand.500}",
+          "$description": "Use for links in a default or hovered state.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "information": {
+          "$type": "color",
+          "$value": "{System.Secondary.Geek.500}",
+          "$description": "Use for links that provide additional information or context, such as links within informational alerts.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{System.Secondary.Geek.500}",
+        "$description": "Use for informative text or to communicate something is in progress, such as in-progress lozenges.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{System.Secondary.Orange.500}",
+        "$description": "Use for text to emphasize caution, such as Interview Declined.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Icon": {
+      "default": {
+        "$type": "color",
+        "$value": "{System.Gray.900}",
+        "$description": "Use for icon-only buttons or icons paired with color/text/default. Apply the primary status color as the default state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{System.brand.600}",
+        "$description": "Use for icons in selected or opened states, such as those used in dropdown buttons.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{System.brand.500}",
+        "$description": "Use for icons that reinforce our brand.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "accent": {
+        "magenta": {
+          "$type": "color",
+          "$value": "{System.Secondary.Magenta.600}",
+          "$description": "Use for magenta icons on non-bold backgrounds when there is no meaning tied to the color, such as file type icons.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "purple": {
+          "$type": "color",
+          "$value": "{System.Secondary.Purple.600}",
+          "$description": "Use for purple icons on non-bold backgrounds when there is no meaning tied to the color, such as file type icons.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "gray": {
+          "$type": "color",
+          "$value": "{System.Gray.400}",
+          "$description": "Use for icons on non-bold gray accent backgrounds, such as file type icons.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "orange": {
+          "$type": "color",
+          "$value": "{System.Secondary.Orange.600}",
+          "$description": "Use for orange icons on non-bold backgrounds when there is no meaning tied to the color, such as file type icons.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL",
+                "STROKE"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{System.Gray.300}",
+        "$description": "Use for icons in a disabled state.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{System.Base.White}",
+        "$description": "Use for icons on bold backgrounds.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{System.Gray.700}",
+        "$description": "Use for icons paired with color/text/subtle.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{System.Secondary.Geek.500}",
+        "$description": "Use for icons communicating information or something in-progress, such as information section messages.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{System.Secondary.Orange.500}",
+        "$description": "Use for icons communicating caution, such as those used in warning section messages.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{System.Secondary.Magenta.500}",
+        "$description": "Use for icons communicating critical information, such as those used in error handing.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtler": {
+        "$type": "color",
+        "$value": "{System.Gray.600}",
+        "$description": "Use for icons paired with color/text/subtler.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{System.Secondary.Green.500}",
+        "$description": "Use for icons communicating a favorable outcome, such as those used in success section messaged.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Skeleton": {
+      "default": {
+        "$type": "color",
+        "$value": "{System.Gray.100}",
+        "$description": "Use for skeleton loading states.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE",
+              "EFFECT_COLOR"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "bold": {
+        "$type": "color",
+        "$value": "{System.Gray.300}",
+        "$description": "Use for skeleton loading states. The bold variant is used as an accent when multiple skeleton tones are applied.",
+        "$extensions": {
+          "dev.openpencil": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE",
+              "EFFECT_COLOR"
+            ],
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "subtler": {
+        "$type": "color",
+        "$value": "{System.Gray.200}",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Blanket": {
+      "Blanket": {
+        "$type": "color",
+        "$value": "{System.Opacity.Black-20}",
+        "$description": "Use for the screen overlay that appears with modal dialogs.",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "Elevation": {
+    "surface": {
+      "raised": {
+        "default": {
+          "$type": "color",
+          "$value": "{System.Base.White}",
+          "$description": "Use for the background of cards that can be moved, such as cards on a board. Combine with elevation/shadow/raised/md.",
+          "$extensions": {
+            "dev.openpencil": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Color",
+      "mode": "Light Mode",
+      "default": true
+    }
+  }
+}

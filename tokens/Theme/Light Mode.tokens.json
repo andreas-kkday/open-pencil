@@ -1,0 +1,709 @@
+{
+  "System": {
+    "Neutral Gray": {
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.968245,
+            0.968245,
+            0.968245
+          ],
+          "alpha": 1,
+          "hex": "#f7f7f7"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.866667,
+            0.866667,
+            0.866667
+          ],
+          "alpha": 1,
+          "hex": "#dddddd"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.768627,
+            0.768627,
+            0.768627
+          ],
+          "alpha": 1,
+          "hex": "#c4c4c4"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.635294,
+            0.635294,
+            0.635294
+          ],
+          "alpha": 1,
+          "hex": "#a2a2a2"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.411765,
+            0.411765,
+            0.411765
+          ],
+          "alpha": 1,
+          "hex": "#696969"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2,
+            0.2,
+            0.2
+          ],
+          "alpha": 1,
+          "hex": "#333333"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Secondary": {
+      "Green": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.85098,
+              0.968627,
+              0.890196
+            ],
+            "alpha": 1,
+            "hex": "#d9f7e3"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.552941,
+              0.921569,
+              0.682353
+            ],
+            "alpha": 1,
+            "hex": "#8debae"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.027451,
+              0.643137,
+              0.239216
+            ],
+            "alpha": 1,
+            "hex": "#07a43d"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.388235,
+              0.133333
+            ],
+            "alpha": 1,
+            "hex": "#006322"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Indigo": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.866667,
+              0.909804,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#dde8ff"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.611765,
+              0.733333,
+              0.972549
+            ],
+            "alpha": 1,
+            "hex": "#9cbbf8"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.258824,
+              0.498039,
+              0.972549
+            ],
+            "alpha": 1,
+            "hex": "#427ff8"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.176471,
+              0.4,
+              0.854902
+            ],
+            "alpha": 1,
+            "hex": "#2d66da"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.098039,
+              0.227451,
+              0.486275
+            ],
+            "alpha": 1,
+            "hex": "#193a7c"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Gold": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.968627,
+              0.890196
+            ],
+            "alpha": 1,
+            "hex": "#fff7e3"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.886275,
+              0.596078
+            ],
+            "alpha": 1,
+            "hex": "#ffe298"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.788235,
+              0.247059
+            ],
+            "alpha": 1,
+            "hex": "#ffc93f"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.937255,
+              0.709804,
+              0.12549
+            ],
+            "alpha": 1,
+            "hex": "#efb520"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.709804,
+              0.509804,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#b58200"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "Red": {
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.890196,
+              0.905882
+            ],
+            "alpha": 1,
+            "hex": "#ffe3e7"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.67451,
+              0.713726
+            ],
+            "alpha": 1,
+            "hex": "#ffacb6"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.870588,
+              0.184314,
+              0.196078
+            ],
+            "alpha": 1,
+            "hex": "#de2f32"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.796078,
+              0.05098,
+              0.062745
+            ],
+            "alpha": 1,
+            "hex": "#cb0d10"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.505882,
+              0,
+              0.066667
+            ],
+            "alpha": 1,
+            "hex": "#810011"
+          },
+          "$extensions": {
+            "dev.openpencil": {
+              "hiddenFromPublishing": true
+            }
+          }
+        }
+      }
+    },
+    "Primary": {
+      "Full Time": {
+        "Anchor": {
+          "500": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.545098,
+                0.490196,
+                0.866667
+              ],
+              "alpha": 1,
+              "hex": "#8b7ddd"
+            },
+            "$extensions": {
+              "dev.openpencil": {
+                "hiddenFromPublishing": true
+              }
+            }
+          },
+          "600": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.47451,
+                0.427451,
+                0.792157
+              ],
+              "alpha": 1,
+              "hex": "#796dca"
+            },
+            "$extensions": {
+              "dev.openpencil": {
+                "hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "Gray": {
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.156863,
+            0.180392,
+            0.219608
+          ],
+          "alpha": 1,
+          "hex": "#282e38"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Base": {
+      "White": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "General": {
+    "Gray-Primary": {
+      "$type": "color",
+      "$value": "{System.Neutral Gray.800}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Gray-Tertiary": {
+      "$type": "color",
+      "$value": "{System.Neutral Gray.500}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Gray-Secondary": {
+      "$type": "color",
+      "$value": "{System.Neutral Gray.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Full Time-Primary-start": {
+      "$type": "color",
+      "$value": "{System.Primary.Full Time.Anchor.500}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Full Time-Primary-Pressed": {
+      "$type": "color",
+      "$value": "{System.Primary.Full Time.Anchor.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "White-Gray-Tertiary": {
+      "$type": "color",
+      "$value": "{System.Neutral Gray.300}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "State": {
+    "Success": {
+      "$type": "color",
+      "$value": "{System.Secondary.Green.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Info": {
+      "$type": "color",
+      "$value": "{System.Secondary.Indigo.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Warning": {
+      "$type": "color",
+      "$value": "{System.Secondary.Gold.600}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "Danger": {
+      "$type": "color",
+      "$value": "{System.Secondary.Red.500}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Background": {
+    "State": {
+      "Success": {
+        "$type": "color",
+        "$value": "{System.Secondary.Green.100}",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Info": {
+        "$type": "color",
+        "$value": "{System.Secondary.Indigo.100}",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Warning": {
+        "$type": "color",
+        "$value": "{System.Secondary.Gold.100}",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      },
+      "Danger": {
+        "$type": "color",
+        "$value": "{System.Secondary.Red.100}",
+        "$extensions": {
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    },
+    "Component": {
+      "$type": "color",
+      "$value": "{System.Base.White}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Disable": {
+    "Icon & Text": {
+      "$type": "color",
+      "$value": "{System.Neutral Gray.500}",
+      "$extensions": {
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Theme",
+      "mode": "Light Mode",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "None": {
+    "$type": "dimension",
+    "$value": {
+      "value": 999,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Radius",
+      "mode": "Pill",
+      "default": false
+    }
+  }
+}

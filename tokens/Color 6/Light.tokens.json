@@ -1,0 +1,54 @@
+{
+  "Text": {
+    "subtle": {
+      "$type": "color",
+      "$value": "{Gray.700}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/700",
+          "targetVariableSetName": "System"
+        },
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    }
+  },
+  "Background": {
+    "disabled": {
+      "$type": "color",
+      "$value": "{Gray.100}",
+      "$extensions": {
+        "com.figma.aliasData": {
+          "targetVariableName": "Gray/100",
+          "targetVariableSetName": "System"
+        },
+        "dev.openpencil": {
+          "hiddenFromPublishing": true
+        }
+      }
+    },
+    "White": {
+      "default": {
+        "$type": "color",
+        "$value": "{white}",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "white",
+            "targetVariableSetName": "System"
+          },
+          "dev.openpencil": {
+            "hiddenFromPublishing": true
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Color",
+      "mode": "Light",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "0": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "2": {
+    "$type": "dimension",
+    "$value": {
+      "value": 2,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "4": {
+    "$type": "dimension",
+    "$value": {
+      "value": 4,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "6": {
+    "$type": "dimension",
+    "$value": {
+      "value": 6,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "8": {
+    "$type": "dimension",
+    "$value": {
+      "value": 8,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "12": {
+    "$type": "dimension",
+    "$value": {
+      "value": 12,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "16": {
+    "$type": "dimension",
+    "$value": {
+      "value": 16,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "20": {
+    "$type": "dimension",
+    "$value": {
+      "value": 20,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "24": {
+    "$type": "dimension",
+    "$value": {
+      "value": 24,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "32": {
+    "$type": "dimension",
+    "$value": {
+      "value": 32,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "40": {
+    "$type": "dimension",
+    "$value": {
+      "value": 40,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "80": {
+    "$type": "dimension",
+    "$value": {
+      "value": 80,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "100": {
+    "$type": "dimension",
+    "$value": {
+      "value": 8,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "150": {
+    "$type": "dimension",
+    "$value": {
+      "value": 12,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "200": {
+    "$type": "dimension",
+    "$value": {
+      "value": 16,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "250": {
+    "$type": "dimension",
+    "$value": {
+      "value": 20,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "300": {
+    "$type": "dimension",
+    "$value": {
+      "value": 24,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "025": {
+    "$type": "dimension",
+    "$value": {
+      "value": 2,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "050": {
+    "$type": "dimension",
+    "$value": {
+      "value": 4,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "075": {
+    "$type": "dimension",
+    "$value": {
+      "value": 6,
+      "unit": "px"
+    },
+    "$extensions": {
+      "dev.openpencil": {
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "hiddenFromPublishing": true
+      }
+    }
+  },
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "Spacing",
+      "mode": "Mode 1",
+      "default": true
+    }
+  }
+}

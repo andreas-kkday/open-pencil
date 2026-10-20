@@ -1,6 +1,11 @@
 import { defineCommand } from 'citty'
 
-import { fontManager, prepareGraphFonts, type DocumentFontStatus } from '@open-pencil/core/text'
+import {
+  fontManager,
+  prepareGraphFonts,
+  styleToWeight,
+  type DocumentFontStatus
+} from '@open-pencil/core/text'
 
 import { appTargetOptions } from '#cli/app/target'
 import { bold, entity, fmtList, kv, printError } from '#cli/format'
@@ -13,11 +18,20 @@ function statusLabel(status: DocumentFontStatus['faces'][number]['status']): str
 
 async function prepareFontStatus(
   graph: Awaited<ReturnType<typeof loadDocument>>,
-  roots: string[]
+  roots: string[],
+  substituteFamily?: string | readonly string[]
 ): Promise<DocumentFontStatus> {
   const previousProviders = fontManager.enabledOnlineFontProviders()
   fontManager.setOnlineFontProviders({})
   fontManager.setWebFontFetch(null)
+  if (substituteFamily) {
+    const families = (typeof substituteFamily === 'string' ? [substituteFamily] : substituteFamily)
+      .flatMap((value) => value.split(','))
+      .map((family) => family.trim())
+      .filter(Boolean)
+    for (const family of families) fontManager.setSubstituteFamily(family)
+    await Promise.all(families.map((family) => fontManager.loadFont(family, 'Regular')))
+  }
   try {
     return await prepareGraphFonts(graph, roots)
   } finally {
@@ -36,7 +50,11 @@ export default defineCommand({
       required: false
     },
     ...appTargetOptions,
-    json: { type: 'boolean', description: 'Output as JSON' }
+    json: { type: 'boolean', description: 'Output as JSON' },
+    substitute: {
+      type: 'string',
+      description: 'Comma-separated font families to try in order when a document font cannot be loaded'
+    }
   },
   async run({ args }) {
     let data: DocumentFontStatus
@@ -46,7 +64,11 @@ export default defineCommand({
       } else {
         const graph = await loadDocument(args.file)
         const pageIds = graph.getPages().map((page) => page.id)
-        data = await prepareFontStatus(graph, pageIds.length > 0 ? pageIds : [graph.rootId])
+        data = await prepareFontStatus(
+          graph,
+          pageIds.length > 0 ? pageIds : [graph.rootId],
+          args.substitute
+        )
       }
     } catch (error) {
       printError(error)
@@ -64,11 +86,21 @@ export default defineCommand({
     console.log('')
     console.log(bold(`  ${data.faces.length} font face${data.faces.length !== 1 ? 's' : ''}`))
     console.log('')
+    const stylesByFamily = new Map<string, Set<string>>()
+    for (const face of data.faces) {
+      const styles = stylesByFamily.get(face.family) ?? new Set<string>()
+      styles.add(face.style)
+      stylesByFamily.set(face.family, styles)
+    }
+
     console.log(
       fmtList(
         data.faces.map((face) => {
           const details: Record<string, string | number> = {
-            status: statusLabel(face.status)
+            status: statusLabel(face.status),
+            style: [...(stylesByFamily.get(face.family) ?? [])]
+              .sort((a, b) => styleToWeight(a) - styleToWeight(b) || a.localeCompare(b))
+              .join(', ')
           }
           if (face.source) details.source = face.source
           if (face.substituteFamily) details.substitute = face.substituteFamily

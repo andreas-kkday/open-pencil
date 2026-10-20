@@ -1,0 +1,9 @@
+{
+  "$extensions": {
+    "dev.openpencil": {
+      "collection": "System Colors",
+      "mode": "Light",
+      "default": true
+    }
+  }
+}

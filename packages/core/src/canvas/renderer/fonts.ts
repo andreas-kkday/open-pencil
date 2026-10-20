@@ -124,8 +124,11 @@ export async function loadFonts(
   fontManager.attachProvider(r.ck, r.fontProvider)
   syncFontGeneration(r)
 
-  const [fontData, titleData] = await Promise.all([
+  const [fontData, _substituteData, titleData, _emojiMetricsData] = await Promise.all([
     fontManager.loadFont(DEFAULT_FONT_FAMILY, 'Regular'),
+    Promise.all(
+      fontManager.substituteFamilies().map((family) => fontManager.loadFont(family, 'Regular'))
+    ),
     fontManager.fetchBundledFont(SECTION_TITLE_FONT_URL).catch(() => null),
     // Without it emoji only take the text font's missing-glyph width; text still draws.
     fontManager.loadFont(EMOJI_METRICS_FAMILY, 'Regular').catch(() => null)
