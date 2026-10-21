@@ -8,7 +8,14 @@ import Tip from '@/components/ui/overlay/Tip.vue'
 
 const { fonts } = useI18n()
 const expanded = ref(false)
-const { status, retrying, retry, selectAffectedNodes } = useDocumentFontStatus()
+const {
+  status,
+  retrying,
+  retry,
+  selectAffectedNodes,
+  downloadSubstitutionConfig,
+  chooseSubstitutionConfig
+} = useDocumentFontStatus()
 const issues = computed(() => status.value.issues)
 </script>
 
@@ -78,6 +85,24 @@ const issues = computed(() => status.value.issues)
               : fonts.affectedLayerCount({ count: issue.nodeIds.length })
           }}
         </span>
+      </div>
+      <div class="mt-2 flex gap-2 border-t border-warning-border pt-2">
+        <button
+          type="button"
+          data-test-id="font-status-download-config"
+          class="rounded px-1.5 py-0.5 font-medium text-warning-action hover:bg-warning/20"
+          @click="downloadSubstitutionConfig"
+        >
+          {{ fonts.downloadSubstitutionConfig }}
+        </button>
+        <button
+          type="button"
+          data-test-id="font-status-choose-config"
+          class="rounded px-1.5 py-0.5 font-medium text-warning-action hover:bg-warning/20"
+          @click="chooseSubstitutionConfig"
+        >
+          {{ fonts.chooseSubstitutionConfig }}
+        </button>
       </div>
     </div>
   </div>

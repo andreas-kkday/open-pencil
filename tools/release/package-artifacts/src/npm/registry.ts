@@ -1,7 +1,10 @@
 import * as v from 'valibot'
 
 const registryErrorSchema = v.object({ error: v.object({ code: v.string() }) })
-const registryVersionSchema = v.pipe(v.string(), v.nonEmpty())
+const registryVersionSchema = v.union([
+  v.pipe(v.string(), v.nonEmpty()),
+  v.pipe(v.array(v.pipe(v.string(), v.nonEmpty())), v.length(1))
+])
 
 export function isRegistryNotFound(text: string): boolean {
   try {
@@ -20,7 +23,12 @@ export function validateRegistryVersion(text: string, expected: string): void {
     throw new Error('npm view: invalid JSON')
   }
   const parsed = v.safeParse(registryVersionSchema, value)
-  if (!parsed.success || parsed.output !== expected) {
+  const version = parsed.success
+    ? typeof parsed.output === 'string'
+      ? parsed.output
+      : parsed.output[0]
+    : undefined
+  if (version !== expected) {
     throw new Error(`npm view: expected version ${expected}`)
   }
 }

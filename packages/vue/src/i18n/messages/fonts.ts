@@ -9,6 +9,8 @@ export const fontsMessageDefaults = {
   selectAffectedLayers: 'Select layers',
   retry: 'Retry fonts',
   retrying: 'Retrying…',
+  downloadSubstitutionConfig: 'Download font config',
+  chooseSubstitutionConfig: 'Load font config',
   expandIssues: 'Show font issues',
   collapseIssues: 'Hide font issues',
   noSubstitute: 'no substitute available',

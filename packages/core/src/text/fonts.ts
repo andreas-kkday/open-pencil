@@ -1,7 +1,7 @@
 /* eslint-disable max-lines -- font loading and registration share FontManager lifecycle state */
 
 import type { CanvasKit, TypefaceFontProvider } from 'canvaskit-wasm'
-import { uniq } from 'es-toolkit/array'
+import { compact, uniq } from 'es-toolkit/array'
 
 import type { FontVariation, SceneGraph } from '@open-pencil/scene-graph'
 
@@ -159,8 +159,8 @@ export class FontManager {
     useDefault = true
   ): string[] {
     const values = typeof families === 'string' ? [families] : (families ?? [])
-    const normalized = values.map((family) => family.trim()).filter(Boolean)
-    return normalized.length > 0 ? uniq(normalized) : useDefault ? [DEFAULT_FONT_FAMILY] : []
+    const normalized = compact(values.map((family) => family.trim()))
+    return normalized.length > 0 ? uniq(normalized) : (useDefault ? [DEFAULT_FONT_FAMILY] : [])
   }
 
   attachProvider(canvasKit: CanvasKit, provider: TypefaceFontProvider): void {

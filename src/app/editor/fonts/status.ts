@@ -6,6 +6,10 @@ import { useEditorEvent } from '@open-pencil/vue'
 
 import { useEditorStore } from '@/app/editor/active-store'
 import { loadFont, requestLocalFontAccess } from '@/app/editor/fonts'
+import {
+  chooseBrowserFontSubstitutionConfig,
+  downloadBrowserFontSubstitutionConfig
+} from '@/app/editor/fonts/config'
 
 export function useDocumentFontStatus() {
   const editor = useEditorStore()
@@ -79,5 +83,23 @@ export function useDocumentFontStatus() {
     editor.select(status.value.issues.flatMap((issue) => issue.nodeIds))
   }
 
-  return { status, retrying, retry, selectAffectedNodes }
+  function downloadSubstitutionConfig() {
+    downloadBrowserFontSubstitutionConfig(status.value, editor.state.documentName)
+  }
+
+  async function chooseSubstitutionConfig() {
+    const substitutions = await chooseBrowserFontSubstitutionConfig()
+    if (!substitutions) return
+    fontManager.setFontSubstitutions(substitutions)
+    await retry()
+  }
+
+  return {
+    status,
+    retrying,
+    retry,
+    selectAffectedNodes,
+    downloadSubstitutionConfig,
+    chooseSubstitutionConfig
+  }
 }

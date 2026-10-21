@@ -1,5 +1,5 @@
 import { expect, setDefaultTimeout, test } from 'bun:test'
-import { mkdtemp } from 'node:fs/promises'
+import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -50,6 +50,23 @@ heavy('fonts CLI', () => {
     expect(data.faithful).toBe(false)
     expect(data.issues.length).toBeGreaterThan(0)
     expect(data.issues.every((face) => face.status === 'unresolved')).toBe(true)
+  })
+  test('creates a substitution config for substituted fonts', async () => {
+    const fixture = await createUnresolvedFontFixture()
+    const { stdout, stderr, exitCode } = await runOpenPencilCLI([
+      'fonts',
+      fixture,
+      '--substitute',
+      'Inter',
+      '--json'
+    ])
+    expect(stderr).toBe('')
+    expect(exitCode).toBe(0)
+    const data: DocumentFontStatus = JSON.parse(stdout)
+    expect(data.issues.every((face) => face.status === 'substituted')).toBe(true)
+    expect(await readFile(`${fixture}.op_fonts`, 'utf8')).toContain(
+      '"Definitely Missing Font" = "Inter"'
+    )
   })
   test('uses the standard human-readable formatter', async () => {
     const { stdout, stderr, exitCode } = await runOpenPencilCLI(['fonts', GOLD])

@@ -15,6 +15,24 @@ function unquote(value: string): string {
   return trimmed
 }
 
+export function fontSubstitutionConfigText(status: DocumentFontStatus): string {
+  const families = new Map<string, string>()
+  for (const issue of status.issues) {
+    if (!families.has(issue.family)) families.set(issue.family, issue.substituteFamily ?? 'Inter')
+  }
+  const lines = [
+    '# OpenPencil font substitutions',
+    '# Edit the mappings below, then load this file in OpenPencil.',
+    '',
+    '[fonts]'
+  ]
+  for (const [family, substitute] of families) {
+    lines.push(`"${family}" = "${substitute}"`)
+  }
+  lines.push('', '[weights]', '# Example: "SF Pro|SemiBold" = "Inter|600"', '')
+  return `${lines.join('\\n')}\\n`
+}
+
 export function parseFontSubstitutions(text: string): FontSubstitution[] {
   const substitutions: FontSubstitution[] = []
   let section: 'fonts' | 'weights' | null = null
@@ -78,6 +96,52 @@ export async function createTauriFontSubstitutionHint(
   } catch (error) {
     console.warn('[Fonts] Failed to create font substitution hint:', error)
   }
+}
+
+export function downloadBrowserFontSubstitutionConfig(
+  status: DocumentFontStatus,
+  documentName: string
+): void {
+  const blob = new Blob([fontSubstitutionConfigText(status)], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = `${documentName || 'design'}.fig.op_fonts`
+  anchor.click()
+  setTimeout(() => URL.revokeObjectURL(url), 0)
+}
+
+export async function chooseBrowserFontSubstitutionConfig(): Promise<FontSubstitution[] | null> {
+  if (typeof window.showOpenFilePicker === 'function') {
+    try {
+      const [handle] = await window.showOpenFilePicker({
+        multiple: false,
+        types: [{ description: 'OpenPencil font config', accept: { 'text/plain': ['.op_fonts'] } }]
+      })
+      return parseFontSubstitutions(await (await handle.getFile()).text())
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return null
+    }
+  }
+
+  return new Promise((resolve) => {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.op_fonts,.fonts,text/plain'
+    input.addEventListener(
+      'change',
+      () => {
+        const file = input.files?.[0]
+        if (!file) {
+          resolve(null)
+          return
+        }
+        void file.text().then((text) => resolve(parseFontSubstitutions(text)))
+      },
+      { once: true }
+    )
+    input.click()
+  })
 }
 
 export async function loadTauriFontSubstitutions(path: string): Promise<FontSubstitution[]> {

@@ -1,3 +1,4 @@
+import { compact } from 'es-toolkit/array'
 import { sumBy } from 'es-toolkit'
 
 import type { SceneGraph, SceneNode } from '@open-pencil/scene-graph'
@@ -84,10 +85,11 @@ export const infoCommand: RPCCommand<void, InfoResult> = {
 type FontStatusArgs = { substitute?: string | readonly string[] }
 
 function substituteFamilies(value: FontStatusArgs['substitute']): string[] {
-  return (typeof value === 'string' ? [value] : (value ?? []))
-    .flatMap((item) => item.split(','))
-    .map((item) => item.trim())
-    .filter(Boolean)
+  return compact(
+    (typeof value === 'string' ? [value] : (value ?? []))
+      .flatMap((item) => item.split(','))
+      .map((item) => item.trim())
+  )
 }
 
 export const fontStatusCommand: RPCCommand<FontStatusArgs | undefined, DocumentFontStatus> = {

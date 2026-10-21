@@ -1,3 +1,4 @@
+import { compact } from 'es-toolkit/array'
 import { useLocalStorage } from '@vueuse/core'
 import { watch } from 'vue'
 
@@ -24,10 +25,11 @@ import { isTauri } from '@/app/tauri/env'
 import { tauriFetch } from '@/app/tauri/http'
 import { IS_TAURI } from '@/constants'
 
-const configuredSubstituteFamilies = (import.meta.env.VITE_OPENPENCIL_SUBSTITUTE_FONT ?? '')
-  .split(',')
-  .map((family) => family.trim())
-  .filter(Boolean)
+const configuredSubstituteFamilies = compact(
+  (import.meta.env.VITE_OPENPENCIL_SUBSTITUTE_FONT ?? '')
+    .split(',')
+    .map((family) => family.trim())
+)
 if (configuredSubstituteFamilies.length > 0) {
   fontManager.setSubstituteFamilies(configuredSubstituteFamilies)
 }

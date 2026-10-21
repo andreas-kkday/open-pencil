@@ -30,7 +30,14 @@ const packResultSchema = v.pipe(
 export type NpmPackResult = v.InferOutput<typeof packResultSchema>
 
 export function parseNpmPack(text: string): NpmPackResult {
-  const parsed = v.safeParse(packResultSchema, parseJSON(text, 'npm pack'))
+  const value = parseJSON(text, 'npm pack')
+  // npm 12 emits a package-name keyed object for a single package, while
+  // older npm versions emit a one-element array.
+  const normalizedValue =
+    typeof value === 'object' && value !== null && !Array.isArray(value)
+      ? Object.values(value)
+      : value
+  const parsed = v.safeParse(packResultSchema, normalizedValue)
   if (!parsed.success) {
     throw new Error(`npm pack: invalid response: ${v.summarize(parsed.issues)}`)
   }

@@ -1,6 +1,7 @@
 import { existsSync, writeFileSync } from 'node:fs'
 
 import { defineCommand } from 'citty'
+import { compact } from 'es-toolkit/array'
 
 import {
   fontManager,
@@ -10,7 +11,7 @@ import {
 } from '@open-pencil/core/text'
 
 import { appTargetOptions } from '#cli/app/target'
-import { bold, entity, fmtList, kv, printError } from '#cli/format'
+import { bold, dim, entity, fmtList, kv, printError } from '#cli/format'
 import { loadDocument } from '#cli/headless'
 import { loadRPCData } from '#cli/rpc-data'
 
@@ -21,10 +22,11 @@ function statusLabel(status: DocumentFontStatus['faces'][number]['status']): str
 function createFontConfigHint(data: DocumentFontStatus, documentPath?: string): string | null {
   if (!documentPath) return null
   const path = `${documentPath}.op_fonts`
-  if (existsSync(path) || data.issues.length === 0) return null
+  const missingFaces = data.faces.filter((face) => face.status !== 'available')
+  if (existsSync(path) || missingFaces.length === 0) return null
 
   const families = new Map<string, string[]>()
-  for (const issue of data.issues) {
+  for (const issue of missingFaces) {
     const styles = families.get(issue.family) ?? []
     if (!styles.includes(issue.style)) styles.push(issue.style)
     families.set(issue.family, styles)
@@ -56,10 +58,11 @@ async function prepareFontStatus(
   fontManager.setOnlineFontProviders({})
   fontManager.setWebFontFetch(null)
   if (substituteFamily) {
-    const families = (typeof substituteFamily === 'string' ? [substituteFamily] : substituteFamily)
-      .flatMap((value) => value.split(','))
-      .map((family) => family.trim())
-      .filter(Boolean)
+    const families = compact(
+      (typeof substituteFamily === 'string' ? [substituteFamily] : substituteFamily)
+        .flatMap((value) => value.split(','))
+        .map((family) => family.trim())
+    )
     fontManager.setSubstituteFamilies(families)
     await Promise.all(families.map((family) => fontManager.loadFont(family, 'Regular')))
   }
@@ -114,7 +117,7 @@ export default defineCommand({
       return
     }
     if (hintPath) {
-      console.log(`Created ${hintPath}; edit it to configure font substitutions.`)
+      console.log(kv('Created', hintPath), dim('Edit it to configure font substitutions.'))
     }
     if (data.faces.length === 0) {
       console.log('No fonts found.')

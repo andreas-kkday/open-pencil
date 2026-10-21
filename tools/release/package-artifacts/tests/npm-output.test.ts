@@ -2,10 +2,18 @@ import { expect, test } from 'bun:test'
 
 import { parsePackageManifest } from '#package-artifacts/manifest/read'
 import { parseNpmPack } from '#package-artifacts/npm/pack'
+import { validateRegistryVersion } from '#package-artifacts/npm/registry'
 
 test('npm pack parser validates archive names and paths', () => {
   expect(
     parseNpmPack(JSON.stringify([{ filename: 'pkg.tgz', files: [{ path: 'src/index.ts' }] }]))
+  ).toEqual({ filename: 'pkg.tgz', files: ['src/index.ts'] })
+  expect(
+    parseNpmPack(
+      JSON.stringify({
+        '@open-pencil/pkg': { filename: 'pkg.tgz', files: [{ path: 'src/index.ts' }] }
+      })
+    )
   ).toEqual({ filename: 'pkg.tgz', files: ['src/index.ts'] })
   for (const value of [
     null,
@@ -38,6 +46,17 @@ test('npm pack parser ignores unrelated npm fields', () => {
       ])
     )
   ).toEqual({ filename: 'pkg.tgz', files: ['src/value.ts'] })
+})
+
+test('registry version validation accepts npm view output', () => {
+  expect(() => validateRegistryVersion('"0.16.0"', '0.16.0')).not.toThrow()
+  expect(() => validateRegistryVersion('["0.16.0"]', '0.16.0')).not.toThrow()
+  expect(() => validateRegistryVersion('["0.15.0", "0.16.0"]', '0.16.0')).toThrow(
+    'npm view: expected version 0.16.0'
+  )
+  expect(() => validateRegistryVersion('"0.15.0"', '0.16.0')).toThrow(
+    'npm view: expected version 0.16.0'
+  )
 })
 
 test('tarball manifest identity errors include archive context', () => {
