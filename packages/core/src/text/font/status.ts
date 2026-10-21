@@ -61,7 +61,20 @@ function collectFaceUses(graph: SceneGraph, rootIds: readonly string[]): Mutable
 }
 
 function faceStatus(use: MutableFontFaceUse, manager: FontManager): DocumentFontFaceStatus {
+  const configured = manager.substituteFor(use.family, use.style)
   const exactSource = manager.loadedFontSource(use.family, use.style)
+  if (configured && manager.isStyleLoaded(use.family, use.style)) {
+    return {
+      family: use.family,
+      style: use.style,
+      status: 'substituted',
+      source: null,
+      substituteFamily: configured.substituteFamily,
+      reason: manager.unavailableReason(use.family, use.style),
+      nodeIds: [...use.nodeIds],
+      nodeNames: [...use.nodeNames]
+    }
+  }
   if (exactSource) {
     return {
       family: use.family,
@@ -88,9 +101,9 @@ function faceStatus(use: MutableFontFaceUse, manager: FontManager): DocumentFont
     }
   }
 
-  const substituteFamily = manager
-    .substituteFamilies()
-    .find((family) => manager.loadedFontSource(family, 'Regular'))
+  const substituteFamily =
+    configured?.substituteFamily ??
+    manager.substituteFamilies().find((family) => manager.loadedFontSource(family, 'Regular'))
   return {
     family: use.family,
     style: use.style,

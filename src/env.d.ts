@@ -5,6 +5,8 @@
 interface ImportMetaEnv {
   /** `on` only in official release builds; without it the app sends no pings or usage stats. */
   readonly VITE_OPENPENCIL_FEEDBACK?: string
+  /** Comma-separated font families used in order when a document font is unavailable. */
+  readonly VITE_OPENPENCIL_SUBSTITUTE_FONT?: string
 }
 
 declare const __OPENPENCIL_APP_VERSION__: string

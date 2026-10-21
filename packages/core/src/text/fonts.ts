@@ -36,9 +36,18 @@ import type { WebFontFetch, WebFontProviderId } from '#core/text/web-fonts'
 
 type FindLocalFontOptions = { allowVariable?: boolean }
 
+export interface FontSubstitution {
+  family: string
+  style?: string
+  substituteFamily: string
+  substituteStyle?: string
+}
+
 export interface FontManagerOptions {
   /** Families tried in order when a requested font cannot be loaded. Defaults to Inter. */
   substituteFamily?: string | readonly string[]
+  /** Exact family/style substitutions tried before the global fallback list. */
+  substitutions?: readonly FontSubstitution[]
 }
 
 const BUNDLED_FONTS: Record<string, string> = {
@@ -90,9 +99,12 @@ export class FontManager {
   private arabicFallbackFamilies: string[] = []
   private arabicFallbackPromise: Promise<string[]> | null = null
   private configuredSubstituteFamilies: string[]
+  private configuredSubstitutions: FontSubstitution[]
 
   constructor(options: FontManagerOptions = {}) {
     this.configuredSubstituteFamilies = this.normalizeSubstituteFamilies(options.substituteFamily)
+    this.configuredSubstitutions = []
+    this.setFontSubstitutions(options.substitutions ?? [])
   }
 
   /** The first family used when a requested font cannot be loaded. */
@@ -103,6 +115,33 @@ export class FontManager {
   /** Families tried in order when a requested font cannot be loaded. */
   substituteFamilies(): readonly string[] {
     return this.configuredSubstituteFamilies
+  }
+
+  /** Replace the substitute families, tried in the supplied order. */
+  setSubstituteFamilies(families: string | readonly string[]): void {
+    this.configuredSubstituteFamilies = this.normalizeSubstituteFamilies(families)
+  }
+
+  /** Replace exact family/style substitutions. */
+  setFontSubstitutions(substitutions: readonly FontSubstitution[]): void {
+    this.configuredSubstitutions = substitutions
+      .map((substitution) => ({
+        family: substitution.family.trim(),
+        style: substitution.style?.trim() || undefined,
+        substituteFamily: substitution.substituteFamily.trim(),
+        substituteStyle: substitution.substituteStyle?.trim() || undefined
+      }))
+      .filter((substitution) => substitution.family && substitution.substituteFamily)
+  }
+
+  /** Return the configured replacement for a requested face, if any. */
+  substituteFor(family: string, style = 'Regular'): FontSubstitution | null {
+    return (
+      this.configuredSubstitutions.find(
+        (substitution) =>
+          substitution.family === family && (!substitution.style || substitution.style === style)
+      ) ?? null
+    )
   }
 
   /** Add a substitute family after the previously configured families. */
@@ -471,11 +510,26 @@ export class FontManager {
         : loaded
     }
 
-    return (
+    const resolved =
       (await this.loadLocalFont(family, style)) ??
       (await this.loadCachedFont(family, style, characters)) ??
       (await this.loadRemoteFont(family, style, characters, signal))
-    )
+    if (resolved) return resolved
+
+    const substitution = this.substituteFor(family, style)
+    if (
+      substitution &&
+      (substitution.substituteFamily !== family || substitution.substituteStyle !== style)
+    ) {
+      const replacement = await this.loadFont(
+        substitution.substituteFamily,
+        substitution.substituteStyle ?? style,
+        characters,
+        signal
+      )
+      return replacement ? this.registerAndCache(family, style, replacement, 'fallback') : null
+    }
+    return null
   }
 
   async ensureNodeFont(family: string, weight: number): Promise<void> {
@@ -531,11 +585,14 @@ export class FontManager {
   }
 
   renderFamily(family: string, _style: string): string {
-    // CanvasKit can shape metrics but paint no glyphs for some CJK/Arabic faces registered under a
-    // synthetic alias. Keep every shard under the font's source family; character-aware remote
-    // requests already fetch cumulative coverage before replacing the primary buffer.
+    // Substituted data is registered under the requested family, so CanvasKit can preserve the
+    // requested family/style while using the configured replacement face.
     return family
   }
+
+  // CanvasKit can shape metrics but paint no glyphs for some CJK/Arabic faces registered under a
+  // synthetic alias. Keep every shard under the font's source family; character-aware remote
+  // requests already fetch cumulative coverage before replacing the primary buffer.
 
   collectFontKeys(graph: SceneGraph, nodeIds: string[]): Array<[string, string]> {
     return collectGraphFontKeys(graph, nodeIds)

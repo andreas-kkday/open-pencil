@@ -1,3 +1,5 @@
+import { existsSync, writeFileSync } from 'node:fs'
+
 import { defineCommand } from 'citty'
 
 import {
@@ -16,12 +18,41 @@ function statusLabel(status: DocumentFontStatus['faces'][number]['status']): str
   return status
 }
 
+function createFontConfigHint(data: DocumentFontStatus, documentPath?: string): string | null {
+  if (!documentPath) return null
+  const path = `${documentPath}.op_fonts`
+  if (existsSync(path) || data.issues.length === 0) return null
+
+  const families = new Map<string, string[]>()
+  for (const issue of data.issues) {
+    const styles = families.get(issue.family) ?? []
+    if (!styles.includes(issue.style)) styles.push(issue.style)
+    families.set(issue.family, styles)
+  }
+  const lines = [
+    '# OpenPencil font substitutions',
+    '# Edit the mappings below and run the command again.',
+    '# This file is read from the current working directory.',
+    '',
+    '[fonts]'
+  ]
+  for (const [family, styles] of families) {
+    lines.push(`# Missing styles: ${styles.join(', ')}`)
+    lines.push(`# "${family}" = "Inter"`)
+  }
+  lines.push('', '[weights]')
+  lines.push('# Example: "SF Pro|SemiBold" = "Inter|600"', '')
+  writeFileSync(path, `${lines.join('\n')}\n`, 'utf8')
+  return path
+}
+
 async function prepareFontStatus(
   graph: Awaited<ReturnType<typeof loadDocument>>,
   roots: string[],
   substituteFamily?: string | readonly string[]
 ): Promise<DocumentFontStatus> {
   const previousProviders = fontManager.enabledOnlineFontProviders()
+  const previousSubstituteFamilies = [...fontManager.substituteFamilies()]
   fontManager.setOnlineFontProviders({})
   fontManager.setWebFontFetch(null)
   if (substituteFamily) {
@@ -29,12 +60,13 @@ async function prepareFontStatus(
       .flatMap((value) => value.split(','))
       .map((family) => family.trim())
       .filter(Boolean)
-    for (const family of families) fontManager.setSubstituteFamily(family)
+    fontManager.setSubstituteFamilies(families)
     await Promise.all(families.map((family) => fontManager.loadFont(family, 'Regular')))
   }
   try {
     return await prepareGraphFonts(graph, roots)
   } finally {
+    fontManager.setSubstituteFamilies(previousSubstituteFamilies)
     fontManager.setOnlineFontProviders(
       Object.fromEntries(previousProviders.map((provider) => [provider, true]))
     )
@@ -53,7 +85,8 @@ export default defineCommand({
     json: { type: 'boolean', description: 'Output as JSON' },
     substitute: {
       type: 'string',
-      description: 'Comma-separated font families to try in order when a document font cannot be loaded'
+      description:
+        'Comma-separated font families to try in order when a document font cannot be loaded'
     }
   },
   async run({ args }) {
@@ -75,9 +108,13 @@ export default defineCommand({
       process.exit(1)
     }
 
+    const hintPath = createFontConfigHint(data, args.file)
     if (args.json) {
       console.log(JSON.stringify(data, null, 2))
       return
+    }
+    if (hintPath) {
+      console.log(`Created ${hintPath}; edit it to configure font substitutions.`)
     }
     if (data.faces.length === 0) {
       console.log('No fonts found.')

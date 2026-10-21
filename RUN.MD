@@ -234,3 +234,14 @@ source ~/.zshrc
 ```
 
 Replace `packages/cli` with another package directory when packing a different workspace package. The tarball filename uses the package name, version, and `.tgz` suffix.
+
+
+
+- FontManager.setSubstituteFamilies() now replaces the default Inter.
+ - openpencil fonts --substitute "Arial,Roboto" now uses the supplied order instead of always preferring Inter.
+ - The CLI option also works when querying the running web app through RPC.
+ - Web app startup supports:
+
+ ```bash
+   VITE_OPENPENCIL_SUBSTITUTE_FONT="Arial,Roboto" bun run dev:portless
+ ```

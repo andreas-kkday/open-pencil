@@ -3,6 +3,7 @@ import { sumBy } from 'es-toolkit'
 import type { SceneGraph, SceneNode } from '@open-pencil/scene-graph'
 
 import type { DocumentFontStatus } from '#core/text/font/status'
+import { fontManager } from '#core/text/fonts'
 import { prepareGraphFonts } from '#core/text/prepare'
 import { queryByXPath } from '#core/xpath'
 
@@ -80,11 +81,30 @@ export const infoCommand: RPCCommand<void, InfoResult> = {
   }
 }
 
-export const fontStatusCommand: RPCCommand<void, DocumentFontStatus> = {
+type FontStatusArgs = { substitute?: string | readonly string[] }
+
+function substituteFamilies(value: FontStatusArgs['substitute']): string[] {
+  return (typeof value === 'string' ? [value] : (value ?? []))
+    .flatMap((item) => item.split(','))
+    .map((item) => item.trim())
+    .filter(Boolean)
+}
+
+export const fontStatusCommand: RPCCommand<FontStatusArgs | undefined, DocumentFontStatus> = {
   name: 'font-status',
-  execute: async (graph) => {
-    const pageIds = graph.getPages().map((page) => page.id)
-    return prepareGraphFonts(graph, pageIds.length > 0 ? pageIds : [graph.rootId])
+  execute: async (graph, args) => {
+    const configured = substituteFamilies(args?.substitute)
+    const previous = [...fontManager.substituteFamilies()]
+    if (configured.length > 0) {
+      fontManager.setSubstituteFamilies(configured)
+      await Promise.all(configured.map((family) => fontManager.loadFont(family, 'Regular')))
+    }
+    try {
+      const pageIds = graph.getPages().map((page) => page.id)
+      return await prepareGraphFonts(graph, pageIds.length > 0 ? pageIds : [graph.rootId])
+    } finally {
+      fontManager.setSubstituteFamilies(previous)
+    }
   }
 }
 

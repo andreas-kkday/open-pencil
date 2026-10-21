@@ -24,6 +24,14 @@ import { isTauri } from '@/app/tauri/env'
 import { tauriFetch } from '@/app/tauri/http'
 import { IS_TAURI } from '@/constants'
 
+const configuredSubstituteFamilies = (import.meta.env.VITE_OPENPENCIL_SUBSTITUTE_FONT ?? '')
+  .split(',')
+  .map((family) => family.trim())
+  .filter(Boolean)
+if (configuredSubstituteFamilies.length > 0) {
+  fontManager.setSubstituteFamilies(configuredSubstituteFamilies)
+}
+
 if (typeof navigator !== 'undefined') {
   fontManager.setFallbackUserAgent(navigator.userAgent)
 }

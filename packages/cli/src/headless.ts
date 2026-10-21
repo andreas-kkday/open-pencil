@@ -5,8 +5,10 @@ import { BUILTIN_IO_FORMATS, IORegistry, initCanvasKit } from '@open-pencil/core
 import { populateAllFigPages, populateFigPage } from '@open-pencil/core/io/formats/fig'
 import { headlessHTMLReader } from '@open-pencil/core/io/formats/html/import'
 import { computeAllLayouts, installTextMeasurer } from '@open-pencil/core/layout'
+import { fontManager } from '@open-pencil/core/text'
 import type { SceneGraph } from '@open-pencil/scene-graph'
 
+import { loadFontSubstitutions } from '#cli/font-config'
 import { printError } from '#cli/format'
 
 export { initCanvasKit }
@@ -17,6 +19,7 @@ export const CLI_IO_FORMATS = [...BUILTIN_IO_FORMATS, headlessHTMLReader]
 const io = new IORegistry(CLI_IO_FORMATS)
 
 export async function loadDocument(filePath: string): Promise<SceneGraph> {
+  fontManager.setFontSubstitutions(loadFontSubstitutions(process.cwd(), filePath))
   const bytes = new Uint8Array(await readFile(filePath))
   const { graph } = await io.readDocument({ name: filePath, data: bytes })
   graph.applyDerivedLayoutDuring(() => computeAllLayouts(graph))

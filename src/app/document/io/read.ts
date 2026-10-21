@@ -1,4 +1,5 @@
 import type { Editor, EditorState } from '@open-pencil/core/editor'
+import { fontManager } from '@open-pencil/core/text'
 
 import { describeDiagnosticError, recordDocumentFailure } from '@/app/diagnostics'
 import { yieldToUI } from '@/app/document/io/browser'
@@ -6,9 +7,11 @@ import { readFigDocument } from '@/app/document/io/fig'
 import { applyImportedDocument } from '@/app/document/io/imported-document'
 import { readReloadSource } from '@/app/document/io/reload-source'
 import { captureReloadState, restoreReloadState } from '@/app/document/io/reload-state'
+import { loadTauriFontSubstitutions } from '@/app/editor/fonts/config'
 import type { EditorPreparationController } from '@/app/editor/preparation/controller'
 import { notificationMessages } from '@/app/i18n/notifications'
 import { toast } from '@/app/shell/ui'
+import { isTauri } from '@/app/tauri/env'
 
 type OpenDocumentState = EditorState & {
   documentName: string
@@ -52,6 +55,11 @@ export function createOpenActions({
       load.update({ phase: 'reading', detail: file.name })
       await yieldToUI()
       load.update({ phase: 'decoding', detail: file.name })
+      if (isTauri() && path) {
+        fontManager.setFontSubstitutions(await loadTauriFontSubstitutions(path))
+      } else {
+        fontManager.setFontSubstitutions([])
+      }
       const imported = await readFigDocument(file, load.signal)
       await yieldToUI()
       load.update({ phase: 'materializing', detail: file.name })

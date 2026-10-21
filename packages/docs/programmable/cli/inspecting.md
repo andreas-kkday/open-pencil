@@ -37,6 +37,19 @@ openpencil fonts --document-id tab-123 --page-id 0:1
 
 File mode checks all document pages using the CLI host's available fonts without downloading online fonts. Live mode reports the targeted app document/page, whose loaded fonts may differ from the CLI host. Faces are reported as `available`, `substituted`, or `unresolved`; JSON output includes `faithful`, `faces`, and `issues`.
 
+The CLI reads font substitutions from `~/.env.fonts`, `./env.fonts`, or `./.env.fonts`. For a document, `<document>.fig.op_fonts` takes precedence. When missing fonts are found, `openpencil fonts <document>` creates that document-local file as an editable hint if it does not already exist:
+
+```ini
+[fonts]
+"PingFang TC" = "Noto Sans CJK TC"
+"SF Pro" = "Inter"
+
+[weights]
+"SF Pro|SemiBold" = "Inter|600"
+```
+
+A family mapping preserves the requested style. A `[weights]` entry can explicitly map a source style to a target style. These mappings are used by file-backed CLI commands; the app UI continues to use its runtime font settings.
+
 Use [export font policies](./exporting#font-substitution-policy) to warn about or reject substitutions during file-backed raster and PDF exports.
 
 ## Node Tree

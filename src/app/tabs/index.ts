@@ -5,6 +5,7 @@ import { BUILTIN_IO_FORMATS, IORegistry } from '@open-pencil/core/io'
 import { findFigThumbnailPageId, populateFigPage } from '@open-pencil/core/io/formats/fig'
 import { renderThumbnail } from '@open-pencil/core/io/formats/raster'
 import { computeAllLayouts } from '@open-pencil/core/layout'
+import { documentFontStatus, fontManager } from '@open-pencil/core/text'
 import type { SceneGraph } from '@open-pencil/scene-graph'
 
 import { setOpenPencilStore } from '@/app/browser-bridge'
@@ -17,6 +18,10 @@ import { applyImportedDocument } from '@/app/document/io/imported-document'
 import type { DocumentSourceIdentity } from '@/app/document/io/types'
 import { getRecoveryStore, type RecoverySnapshotMeta } from '@/app/document/recovery'
 import { setActiveEditorStore } from '@/app/editor/active-store'
+import {
+  createTauriFontSubstitutionHint,
+  loadTauriFontSubstitutions
+} from '@/app/editor/fonts/config'
 import type { EditorPreparationHandle as DocumentLoadSession } from '@/app/editor/preparation/types'
 import { createEditorStore } from '@/app/editor/session'
 import type { EditorStore } from '@/app/editor/session'
@@ -39,6 +44,7 @@ import { toast } from '@/app/shell/ui'
 import { createFileOpenCoordinator } from '@/app/tabs/open/coordinator'
 import { findTabByFileIdentity } from '@/app/tabs/open/identity'
 import { readStorageDocument } from '@/app/tabs/open/storage'
+import { isTauri } from '@/app/tauri/env'
 
 export type TabKind = 'home' | 'document'
 
@@ -496,6 +502,11 @@ export async function openFileInNewTab(
     let sourceFormat: string
     if (isFig) {
       load.update({ phase: 'decoding', detail: file.name })
+      if (isTauri() && path) {
+        fontManager.setFontSubstitutions(await loadTauriFontSubstitutions(path))
+      } else {
+        fontManager.setFontSubstitutions([])
+      }
       imported = await readFigForTab(file, load.signal)
       sourceFormat = 'fig'
     } else {
@@ -518,6 +529,13 @@ export async function openFileInNewTab(
       load
     )
     if (isFig && path) {
+      await createTauriFontSubstitutionHint(
+        path,
+        documentFontStatus(
+          store.graph,
+          store.graph.getPages().map((page) => page.id)
+        )
+      )
       void cacheOpenedFigCover(path, store).catch((error) => {
         console.warn('[Recent files] Failed to cache the Cover thumbnail', error)
       })
