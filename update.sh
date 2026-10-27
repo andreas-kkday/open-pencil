@@ -17,4 +17,15 @@ bun --filter @open-pencil/release-packages-tools prepare-publish-dirs
 bun --filter @open-pencil/release-packages-tools pack
 mkdir -p artifacts
 cp .npm-packages/*.tgz artifacts/
-bun install --global "$PWD"/artifacts/*.tgz
+
+mkdir -p ~/open-pencil-local
+cd ~/open-pencil-local
+
+mise use node@24
+mise use bun@latest
+
+bun init -y
+
+# Install all locally built packages together
+bun add /Users/andreas/git/open-pencil/.npm-packages/*.tgz
+cd -
