@@ -3,12 +3,8 @@ import { existsSync, writeFileSync } from 'node:fs'
 import { defineCommand } from 'citty'
 import { compact } from 'es-toolkit/array'
 
-import {
-  fontManager,
-  prepareGraphFonts,
-  styleToWeight,
-  type DocumentFontStatus
-} from '@open-pencil/core/text'
+import { fontManager, prepareGraphFonts, type DocumentFontStatus } from '@open-pencil/core/text'
+import { styleToWeight } from '@open-pencil/scene-graph/font-style'
 
 import { appTargetOptions } from '#cli/app/target'
 import { bold, dim, entity, fmtList, kv, printError } from '#cli/format'

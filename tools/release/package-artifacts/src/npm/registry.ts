@@ -23,11 +23,14 @@ export function validateRegistryVersion(text: string, expected: string): void {
     throw new Error('npm view: invalid JSON')
   }
   const parsed = v.safeParse(registryVersionSchema, value)
-  const version = parsed.success
-    ? typeof parsed.output === 'string'
-      ? parsed.output
-      : parsed.output[0]
-    : undefined
+  let version: string | undefined
+  if (parsed.success) {
+    if (typeof parsed.output === 'string') {
+      version = parsed.output
+    } else {
+      version = parsed.output[0]
+    }
+  }
   if (version !== expected) {
     throw new Error(`npm view: expected version ${expected}`)
   }

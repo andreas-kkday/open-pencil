@@ -29,6 +29,8 @@ export function fontWeightMatchOrder(weight: number): number[] {
  * weight and slant, since the face is registered as that style; without one, the face CSS
  * font matching would pick for the regular style.
  */
+export { weightToStyle } from '@open-pencil/scene-graph/font-style'
+
 export function chooseLocalFontMatch<T extends FontFamilyStyle>(
   fonts: T[],
   family: string,

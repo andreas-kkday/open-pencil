@@ -5,14 +5,13 @@ import { SkiaRenderer } from '@open-pencil/core/canvas'
 import { BUILTIN_IO_FORMATS, IORegistry } from '@open-pencil/core/io'
 import { populateAllFigPages, populateFigPage } from '@open-pencil/core/io/formats/fig'
 import { headlessHTMLReader } from '@open-pencil/core/io/formats/html/import'
-import { fontManager } from '@open-pencil/core/text'
 import { initCanvasKit } from '@open-pencil/core/io/formats/raster'
+import { fontManager, prepareGraphFonts, type DocumentFontStatus } from '@open-pencil/core/text'
 import {
   computeAllLayouts,
   installTextMeasurer,
   sizeAutoResizingText
 } from '@open-pencil/core/layout'
-import { prepareGraphFonts, type DocumentFontStatus } from '@open-pencil/core/text'
 import type { SceneGraph } from '@open-pencil/scene-graph'
 import { collectSceneMutation } from '@open-pencil/scene-graph/mutation-impact'
 
