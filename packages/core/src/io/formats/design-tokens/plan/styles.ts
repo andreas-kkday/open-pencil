@@ -1,13 +1,10 @@
 import { isEqual, isPlainObject } from 'es-toolkit/predicate'
 import * as v from 'valibot'
 
-import {
-  getSharedStyles,
-  type Color,
-  type Effect,
-  type SceneGraph,
-  type SceneNode
-} from '@open-pencil/scene-graph'
+import type { Effect, SceneGraph, SceneNode, TextLength } from '@open-pencil/scene-graph'
+import type { Color } from '@open-pencil/scene-graph/primitives'
+import { getSharedStyles } from '@open-pencil/scene-graph/shared-styles'
+import { percentLength, pixelLength, textLengthSchema } from '@open-pencil/scene-graph/text'
 
 import { tryParseFigmaEffects } from '#core/figma-api/effects'
 import {
@@ -42,20 +39,20 @@ const TEXT_BINDING_FIELDS: readonly TextBindingField[] = [
   'lineHeight'
 ]
 
-const OwnTextSchema = v.object({
+const ownTextSchema = v.object({
   text: v.object({
     fontFamily: v.string(),
     fontWeight: v.number(),
     italic: v.boolean(),
     fontSize: v.number(),
-    lineHeight: v.nullable(v.number()),
-    letterSpacing: v.number(),
+    lineHeight: v.nullable(textLengthSchema),
+    letterSpacing: textLengthSchema,
     textDecoration: v.picklist(['NONE', 'UNDERLINE', 'STRIKETHROUGH']),
     textCase: v.picklist(['ORIGINAL', 'UPPER', 'LOWER', 'TITLE'])
   }),
   bindings: v.optional(v.record(v.string(), v.string()))
 })
-const OwnEffectsSchema = v.object({ effects: v.array(v.unknown()) })
+const ownEffectsSchema = v.object({ effects: v.array(v.unknown()) })
 
 /** The composite types that become styles. */
 const STYLE_KINDS: Partial<Record<string, PlannedStyle['kind']>> = {
@@ -88,7 +85,7 @@ const pixels = (value: unknown) =>
  * the edit wins over the exact fields.
  */
 function ownText(token: ReadToken) {
-  const own = v.safeParse(OwnTextSchema, token.extensions[OPENPENCIL_EXTENSION])
+  const own = v.safeParse(ownTextSchema, token.extensions[OPENPENCIL_EXTENSION])
   if (!own.success) return null
   const { text, bindings = {} } = own.output
   return { ...own.output, current: isEqual(token.value, typographyValue(text, bindings)) }
@@ -101,6 +98,12 @@ function textFields(token: ReadToken, resolve: Resolve): Partial<SceneNode> | nu
   const fields = decodedTextFields(token, resolve)
   // Italic, decoration, and case have no place in `$value`, so the extension's still apply.
   return fields && own ? { ...own.text, ...fields } : fields
+}
+
+/** A token's line height: a multiple of the font size follows it as a percent, pixels stay. */
+function tokenLineHeight(multiplier: number | null, pixels: number | null): TextLength | null {
+  if (multiplier !== null) return percentLength(multiplier * 100)
+  return pixels === null ? null : pixelLength(pixels)
 }
 
 function decodedTextFields(token: ReadToken, resolve: Resolve): Partial<SceneNode> | null {
@@ -117,8 +120,9 @@ function decodedTextFields(token: ReadToken, resolve: Resolve): Partial<SceneNod
     fontFamily,
     fontSize,
     fontWeight: fieldValue(value.fontWeight, resolve, decodeFontWeight) ?? 400,
-    lineHeight: multiplier !== null ? multiplier * fontSize : lineHeightPx,
-    letterSpacing: fieldValue(value.letterSpacing, resolve, pixels) ?? 0
+    // A unitless line height is a multiple of the font size, which follows the size as a percent.
+    lineHeight: tokenLineHeight(multiplier, lineHeightPx),
+    letterSpacing: pixelLength(fieldValue(value.letterSpacing, resolve, pixels) ?? 0)
   }
 }
 
@@ -190,7 +194,7 @@ function replaceShadows(exact: readonly Effect[], shadows: readonly Effect[]): E
 
 /** A shadow token as effects, preferring the exact effects OpenPencil wrote. */
 function effectFields(token: ReadToken, resolve: Resolve): Partial<SceneNode> | null {
-  const own = v.safeParse(OwnEffectsSchema, token.extensions[OPENPENCIL_EXTENSION])
+  const own = v.safeParse(ownEffectsSchema, token.extensions[OPENPENCIL_EXTENSION])
   // Extension effects that do not read fall back to the token's own shadows.
   const exact = own.success ? tryParseFigmaEffects(own.output.effects) : null
   if (exact && isEqual(token.value, shadowTokenValue(exact))) return { effects: exact }

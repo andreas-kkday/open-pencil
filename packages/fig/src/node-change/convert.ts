@@ -4,14 +4,15 @@ import { guidToString, isUnsetGuid } from '@open-pencil/kiwi/fig/guid'
 import {
   DEFAULT_FONT_FAMILY,
   DEFAULT_STROKE_MITER_LIMIT,
-  DEFAULT_STROKE_WEIGHT,
-  getNodeLocalMatrix,
-  OPEN_PENCIL_PLUGIN_DATA,
-  styleToWeight
-} from '@open-pencil/scene-graph'
+  DEFAULT_STROKE_WEIGHT
+} from '@open-pencil/scene-graph/constants'
+import { getNodeLocalMatrix } from '@open-pencil/scene-graph/coordinate'
+import { styleToWeight } from '@open-pencil/scene-graph/font-style'
 import { createDefaultSourceMetadata } from '@open-pencil/scene-graph/node-defaults'
+import { OPEN_PENCIL_PLUGIN_DATA } from '@open-pencil/scene-graph/plugin-data'
 import { POINT_COUNT_RANGE } from '@open-pencil/scene-graph/polygon'
 import { isShapeWithTextType } from '@open-pencil/scene-graph/shape-with-text'
+import { pixelLength } from '@open-pencil/scene-graph/text'
 import { parseVariantName } from '@open-pencil/scene-graph/variant-name'
 /* eslint-disable max-lines -- kiwi↔scene conversion helpers are tightly coupled */
 
@@ -50,12 +51,19 @@ import { decodeVectorNetworkBlob, textPathStartSegment, type StyleOverride } fro
 
 export { convertEffects, convertFills, convertStrokes, setVariableColorResolver } from './paint'
 export { importStyleRuns } from './style/runs'
-export { convertLetterSpacing, convertLineHeight, mapTextDecoration } from './text/values'
+export {
+  convertLetterSpacing,
+  convertLineHeight,
+  figmaLetterSpacing,
+  figmaLineHeight,
+  mapTextDecoration
+} from './text/values'
 export { resolveGeometryPaths } from './vector/geometry'
 
 import type { NodeChange } from '@open-pencil/kiwi/fig/codec'
 import type {
   SceneNode,
+  TextLength,
   NodeType,
   Fill,
   StrokeCap,
@@ -79,12 +87,10 @@ import type {
   ComponentPropertyType,
   SymbolLink,
   VariantPropSpec,
-  VariableModeMap,
-  Vector
+  VariableModeMap
 } from '@open-pencil/scene-graph'
-import type { GUID } from '@open-pencil/scene-graph/primitives'
+import type { Vector, GUID } from '@open-pencil/scene-graph/primitives'
 
-export { guidToString, stringToGuid } from '@open-pencil/kiwi/fig/guid'
 import { numericVariableAssignmentScales, sourceVariableBindingScales } from './variable/bindings'
 export { VARIABLE_BINDING_FIELDS, VARIABLE_BINDING_FIELDS_INVERSE } from './variable/bindings'
 
@@ -328,7 +334,7 @@ function convertPolygonProps(
  * larger of its line height and its tallest font's height, so a first line shorter than the
  * text's height in pixels was laid out at another one, which a style the text uses set.
  */
-function importedTextLineHeight(nc: NodeChange): number | null {
+function importedTextLineHeight(nc: NodeChange): TextLength | null {
   if (!nc.lineHeight || isFigmaAutoLineHeight(nc.lineHeight)) return null
   const derivedLineHeight = nc.derivedTextData?.baselines?.[0]?.lineHeight
   if (
@@ -337,8 +343,8 @@ function importedTextLineHeight(nc: NodeChange): number | null {
     Number.isFinite(derivedLineHeight) &&
     derivedLineHeight < nc.lineHeight.value
   )
-    return derivedLineHeight
-  return convertLineHeight(nc.lineHeight, nc.fontSize)
+    return pixelLength(derivedLineHeight)
+  return convertLineHeight(nc.lineHeight)
 }
 
 type TextProps = Pick<
@@ -367,6 +373,7 @@ type TextProps = Pick<
   | 'hangingList'
   | 'styleRuns'
   | 'fontVariations'
+  | 'opticalSizeFromFontSize'
   | 'fontFeatures'
   | 'textTruncation'
   | 'textDirection'
@@ -416,18 +423,18 @@ function givenSize(value: unknown): number {
 }
 
 /**
- * A FigJam shape with text's kind and the size it was given; its label is read as a sublayer.
- * FigJam keeps the given height; OpenPencil keeps the given width too, in its plugin data.
+ * A FigJam shape with text's kind, the height it was given and whether it keeps that height; its
+ * label is read as a sublayer.
  */
 function convertShapeWithTextProps(
   nc: NodeChange
-): Partial<Pick<SceneNode, 'shapeWithTextType' | 'shapeUserHeight' | 'shapeUserWidth'>> {
+): Partial<Pick<SceneNode, 'shapeWithTextType' | 'shapeUserHeight' | 'shapeTruncates'>> {
   if (nc.type !== 'SHAPE_WITH_TEXT') return {}
   const kind = isShapeWithTextType(nc.shapeWithTextType) ? nc.shapeWithTextType : 'SQUARE'
   return {
     shapeWithTextType: kind,
     shapeUserHeight: givenSize(nc.shapeUserHeight),
-    shapeUserWidth: givenSize(readNodeChangePluginData(nc, OPEN_PENCIL_PLUGIN_DATA.shapeUserWidth))
+    shapeTruncates: nc.shapeTruncates === true
   }
 }
 
@@ -449,11 +456,12 @@ function convertTextProps(nc: NodeChange, blobs: Uint8Array[]): TextProps {
     ...convertTextDecorationProps(nc),
     leadingTrim: (nc.leadingTrim ?? 'NONE') as SceneNode['leadingTrim'],
     lineHeight: importedTextLineHeight(nc),
-    letterSpacing: convertLetterSpacing(nc.letterSpacing, nc.fontSize),
+    letterSpacing: convertLetterSpacing(nc.letterSpacing),
     maxLines: (nc.maxLines ?? null) as number | null,
     ...convertParagraphProps(nc),
     styleRuns: importStyleRuns(nc),
     fontVariations: convertFontVariations(nc),
+    opticalSizeFromFontSize: nc.detachOpticalSizeFromFontSize !== true,
     fontFeatures: convertFontFeatures(nc),
     textTruncation: (nc.textTruncation as string) === 'ENDING' ? 'ENDING' : 'DISABLED',
     textDirection: readNodeChangePluginData(nc, OPEN_PENCIL_PLUGIN_DATA.textDirection) ?? 'AUTO',
@@ -741,7 +749,11 @@ export function nodeChangeToProps(
     maxHeight: maximumSizeDimension(nc.maxSize, 'y'),
     targetAspectRatio: targetAspectRatio(nc),
     isMask: nc.mask ?? false,
-    maskType: (nc.maskType ?? 'ALPHA') as 'ALPHA' | 'VECTOR' | 'LUMINANCE',
+    // A .fig file stores a vector mask as OUTLINE.
+    maskType: (nc.maskType === 'OUTLINE' ? 'VECTOR' : (nc.maskType ?? 'ALPHA')) as
+      | 'ALPHA'
+      | 'VECTOR'
+      | 'LUMINANCE',
     maskIsOutline: nc.maskIsOutline ?? false,
     expanded: true,
     autoRename: (nc.autoRename ?? true) as boolean,
@@ -1205,6 +1217,7 @@ export const FIGMA_RAW_NODE_FIELD_KEYS = [
   'textUserLayoutVersion',
   'textExplicitLayoutVersion',
   'fontVariations',
+  'detachOpticalSizeFromFontSize',
   'fontVariantCommonLigatures',
   'fontVariantContextualLigatures',
   'toggledOnOTFeatures',

@@ -1,7 +1,10 @@
 import { compact, countBy } from 'es-toolkit/array'
 import { camelCase } from 'es-toolkit/string'
-import * as v from 'valibot'
+import type * as v from 'valibot'
 
+import { es } from '@open-pencil/emit'
+import type { ConnectorEndpoint, SceneGraph, SceneNode } from '@open-pencil/scene-graph'
+import { colorToHex } from '@open-pencil/scene-graph/color'
 import {
   boundEndpoint,
   CONNECTOR_COLOR,
@@ -11,20 +14,16 @@ import {
   connectorStroke,
   connectorSublayers,
   createConnector,
-  freeEndpoint,
-  isGeneratedFrame,
-  type ConnectorEndpoint,
-  type SceneGraph,
-  type SceneNode
-} from '@open-pencil/scene-graph'
-import { colorToHex } from '@open-pencil/scene-graph/color'
+  freeEndpoint
+} from '@open-pencil/scene-graph/connectors'
+import { isGeneratedFrame } from '@open-pencil/scene-graph/generated'
 import type { Vector } from '@open-pencil/scene-graph/primitives'
 
-import { CONNECTOR_LINE, CONNECTOR_SIDE, enumProp, STROKE_CAP } from './enums'
+import { CONNECTOR_LINE, CONNECTOR_SIDE, STROKE_CAP } from './enums'
 import { Reference } from './export/value'
-import { isLayerRef, type LayerRef, type LayerRefs } from './refs'
+import { isLayerRef, type LayerRefs } from './refs'
+import { connectorPropsSchema, readElementProps } from './schema'
 import { plainTextOf, type TreeNode } from './tree'
-import { ColorProp, OwnLayerProps, readElementProps } from './validation'
 
 /**
  * `<Connector from="A" to="B">`: a FigJam connector whose ends name other layers of the same
@@ -33,31 +32,7 @@ import { ColorProp, OwnLayerProps, readElementProps } from './validation'
  */
 export const CONNECTOR_ELEMENT = 'connector'
 
-/** A layer of the same JSX by name or `ref()`, or a point in the connector's parent. */
-const ConnectorEnd = v.union(
-  [v.string(), v.custom<LayerRef>(isLayerRef), v.object({ x: v.number(), y: v.number() })],
-  'expected a layer name, a ref(), or { x, y }'
-)
-
-/** The props `<Connector>` takes: its own, and the layer props that style its line. */
-export const ConnectorProps = v.object({
-  from: v.optional(ConnectorEnd),
-  to: v.optional(ConnectorEnd),
-  fromSide: v.optional(enumProp(CONNECTOR_SIDE)),
-  toSide: v.optional(enumProp(CONNECTOR_SIDE)),
-  line: v.optional(enumProp(CONNECTOR_LINE)),
-  startCap: v.optional(enumProp(STROKE_CAP)),
-  endCap: v.optional(enumProp(STROKE_CAP)),
-  ...OwnLayerProps.entries,
-  stroke: v.optional(ColorProp),
-  strokeWidth: v.optional(v.pipe(v.number(), v.gtValue(0))),
-  dashPattern: v.optional(v.array(v.number()))
-})
-
-type ConnectorPropValues = v.InferOutput<typeof ConnectorProps>
-
-/** The layer props a connector has: no place or size, which its ends give it. */
-export const ConnectorLayerProps = OwnLayerProps
+type ConnectorPropValues = v.InferOutput<typeof connectorPropsSchema>
 
 /**
  * Makes the connector an element describes, with `layer`'s fields, its ends free until
@@ -69,7 +44,7 @@ export function renderConnectorNode(
   parentId: string,
   layer: Partial<SceneNode>
 ) {
-  const props = readElementProps(ConnectorProps, tree.props)
+  const props = readElementProps(connectorPropsSchema, tree.props)
   const parent = graph.getNode(parentId)
   const connector = createConnector(
     graph,
@@ -184,7 +159,7 @@ export function resolveConnectorEnds(
   }
   for (const { node, tree } of connectors) {
     const straight = node.connectorLineType === 'STRAIGHT'
-    const props = readElementProps(ConnectorProps, tree.props)
+    const props = readElementProps(connectorPropsSchema, tree.props)
     const start = endpoint('from', props, tree.props, straight)
     const end = endpoint('to', props, tree.props, straight)
     graph.updateNode(node.id, {
@@ -198,7 +173,7 @@ export function resolveConnectorEnds(
 /** `card1` for a layer named "Card": a name a declaration can take, numbered to stay unique. */
 function refName(layerName: string, taken: Set<string>): string {
   const camel = camelCase(layerName)
-  const base = /^[A-Za-z_$][\w$]*$/.test(camel) ? camel : 'layer'
+  const base = es.isIdentifierName(camel) ? camel : 'layer'
   let count = 1
   while (taken.has(`${base}${count}`)) count++
   const name = `${base}${count}`

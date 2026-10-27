@@ -1,15 +1,13 @@
 import { isEqual, omitBy, pick } from 'es-toolkit'
 
-import {
-  createDefaultNode,
-  layoutSizing,
-  type SceneGraph,
-  type SceneNode
-} from '@open-pencil/scene-graph'
+import type { ArcData, SceneGraph, SceneNode } from '@open-pencil/scene-graph'
 import { DEFAULT_FONT_FAMILY } from '@open-pencil/scene-graph/constants'
-import { resolveNodeTextDirection } from '@open-pencil/scene-graph/text-direction'
+import { layoutSizing } from '@open-pencil/scene-graph/layout'
+import { createDefaultNode } from '@open-pencil/scene-graph/node-defaults'
+import { resolveNodeTextDirection } from '@open-pencil/scene-graph/text/direction'
 
 import { BLEND_MODE, TEXT_ALIGN, TEXT_ALIGN_VERTICAL, TEXT_CASE, TEXT_DECORATION } from '../enums'
+import { textLengthJSX } from '../overrides/text'
 import { collectDecorationProps } from './decoration'
 import {
   collectCornerRadii,
@@ -124,6 +122,8 @@ function collectAppearanceProps(node: SceneNode, props: JSXProp[]): void {
   if (node.cornerSmoothing > 0) props.push(['cornerSmoothing', node.cornerSmoothing])
   if (node.opacity < 1) props.push(['opacity', Math.round(node.opacity * 100) / 100])
   if (node.rotation !== 0) props.push(['rotate', Math.round(node.rotation * 100) / 100])
+  if (node.flipX) props.push(['flipX', true])
+  if (node.flipY) props.push(['flipY', true])
   if (node.blendMode !== 'PASS_THROUGH' && node.blendMode !== 'NORMAL') {
     props.push(['blendMode', BLEND_MODE.print(node.blendMode)])
   }
@@ -253,8 +253,10 @@ function collectTextNodeProps(node: SceneNode, props: JSXProp[]): void {
   if (node.textAlignVertical !== 'TOP') {
     props.push(['textAlignVertical', TEXT_ALIGN_VERTICAL.print(node.textAlignVertical)])
   }
-  if (node.lineHeight != null) props.push(['lineHeight', node.lineHeight])
-  if (node.letterSpacing !== 0) props.push(['letterSpacing', node.letterSpacing])
+  if (node.lineHeight != null) props.push(['lineHeight', textLengthJSX(node.lineHeight)])
+  if (node.letterSpacing.value !== 0) {
+    props.push(['letterSpacing', textLengthJSX(node.letterSpacing)])
+  }
   if (node.textDecoration !== 'NONE')
     props.push(['textDecoration', TEXT_DECORATION.print(node.textDecoration)])
   collectDecorationProps(
@@ -292,7 +294,21 @@ function collectTextAutoResizeProp(
   }
 }
 
+const roundDegrees = (radians: number) => Math.round(((radians * 180) / Math.PI) * 10_000) / 10_000
+
+/** An ellipse's arc, written only where it is not a whole ellipse. */
+function collectArcProps(arc: ArcData | null, props: JSXProp[]): void {
+  if (!arc) return
+  const start = roundDegrees(arc.startingAngle)
+  const end = roundDegrees(arc.endingAngle)
+  if (start !== 0) props.push(['startAngle', start])
+  // A whole turn from the start is the default end.
+  if (Math.abs(end - (start + 360)) > 1e-6) props.push(['endAngle', end])
+  if (arc.innerRadius !== 0) props.push(['innerRadius', arc.innerRadius])
+}
+
 function collectShapeNodeProps(node: SceneNode, props: JSXProp[]): void {
+  if (node.type === 'ELLIPSE') collectArcProps(node.arcData, props)
   if (node.type === 'STAR') {
     if (node.pointCount !== 5) props.push(['points', node.pointCount])
     if (node.starInnerRadius !== 0.382) props.push(['innerRadius', node.starInnerRadius])

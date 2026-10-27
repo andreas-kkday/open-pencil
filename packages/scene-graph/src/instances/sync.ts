@@ -1,17 +1,12 @@
 // Child cloning and property synchronization shared by instance creation, swap, and sync.
 import { isEqual } from 'es-toolkit/predicate'
 
-import type { SceneGraph, SceneNode } from '../'
 import { cloneNodeProps, copyEffects, copyFills, copyStrokes, copyStyleRuns } from '../copy'
 import type { NodeCloneMode } from '../copy'
-import {
-  getInstanceOverride,
-  hasInstanceOverride as hasNodeInstanceOverride,
-  setInstanceOverride,
-  type InstanceOverrideState
-} from '../instance-overrides'
+import type { SceneGraph } from '../graph'
 import { scaleNodeChanges } from '../scaling/node'
 import { ownsSlotContent, slotPropertyId } from '../slots/frames'
+import type { SceneNode } from '../types'
 import { scaleVariableBindingUnits } from '../variables/units'
 import { applyEnclosingAssignments, assignedFieldValues, propertyDrivenFields } from './assignments'
 import { keepOwnContentSize, remeasureChangedText, type SyncedPlacement } from './content-size'
@@ -24,6 +19,14 @@ import {
 } from './copies'
 import { INSTANCE_SYNC_FIELD_OWNERS, INSTANCE_SYNC_FIELDS } from './fields'
 import { ownsSelfFillField, sourceWithEffectiveFill } from './main-component'
+import {
+  bindingOverrideField,
+  getInstanceOverride,
+  hasInstanceOverride as hasNodeInstanceOverride,
+  overriddenBindingField,
+  setInstanceOverride,
+  type InstanceOverrideState
+} from './overrides'
 import { PLACEMENT_FIELDS, placedByConstraints } from './placement'
 import { followVectorGeometry } from './vector-geometry'
 
@@ -68,7 +71,7 @@ export function copyProp(
 export function bindingProtection(scopes: ReadonlySet<string>[]): (field: string) => boolean {
   const fields = new Set<string>()
   for (const scope of scopes) {
-    const perField = [...scope].some((field) => field.startsWith('boundVariables/'))
+    const perField = [...scope].some((field) => overriddenBindingField(field) !== null)
     for (const field of scope) {
       if (field !== 'boundVariables' || !perField) fields.add(field)
     }
@@ -90,7 +93,7 @@ export function syncBindingFields(
     ...Object.keys(target.boundVariables),
     ...Object.keys(target.variableBindingScales)
   ])) {
-    if (!protectedField(`boundVariables/${field}`)) continue
+    if (!protectedField(bindingOverrideField(field))) continue
     if (!Object.hasOwn(target.boundVariables, field)) Reflect.deleteProperty(bindings, field)
     else bindings[field] = target.boundVariables[field]
     if (target.variableBindingScales[field] === undefined) Reflect.deleteProperty(scales, field)
@@ -108,7 +111,7 @@ export function isProtectedSyncField(
   return (
     protectedField(key) ||
     (key in node.boundVariables &&
-      (protectedField('boundVariables') || protectedField(`boundVariables/${key}`)))
+      (protectedField('boundVariables') || protectedField(bindingOverrideField(key))))
   )
 }
 

@@ -8,6 +8,9 @@
  * no shared references between source and copy.
  */
 
+import { geometryCommandCoordCount } from './geometry'
+import { cloneInstanceOverrideState } from './instances/overrides'
+import { createDefaultSourceMetadata } from './node-defaults'
 import type {
   ArcData,
   ComponentPropertyDefinition,
@@ -21,10 +24,7 @@ import type {
   SceneNode,
   Stroke,
   StyleRun
-} from './'
-import { geometryCommandCoordCount } from './geometry'
-import { cloneInstanceOverrideState } from './instance-overrides'
-import { createDefaultSourceMetadata } from './node-defaults'
+} from './types'
 import { cloneVectorNetwork } from './vector-network'
 
 // --- Individual copy functions ---
@@ -72,6 +72,8 @@ export function copyStyleRun(r: StyleRun): StyleRun {
     }
   }
   if (r.style.hyperlink) copy.style.hyperlink = { ...r.style.hyperlink }
+  if (r.style.lineHeight) copy.style.lineHeight = { ...r.style.lineHeight }
+  if (r.style.letterSpacing) copy.style.letterSpacing = { ...r.style.letterSpacing }
   if (r.style.boundVariables) copy.style.boundVariables = { ...r.style.boundVariables }
   return copy
 }
@@ -244,6 +246,14 @@ function copyArcData(a: ArcData): ArcData {
  */
 export type NodeCloneMode = 'deep' | 'fig-import'
 
+/** A text's line height and letter spacing, copied so a clone never shares them. */
+function copyTextLengths(src: SceneNode): Pick<SceneNode, 'lineHeight' | 'letterSpacing'> {
+  return {
+    lineHeight: src.lineHeight && { ...src.lineHeight },
+    letterSpacing: { ...src.letterSpacing }
+  }
+}
+
 export function cloneNodeProps(
   src: SceneNode,
   componentId: string | null,
@@ -285,6 +295,7 @@ export function cloneNodeProps(
     source: componentId === null ? structuredClone(src.source) : createDefaultSourceMetadata(),
     dashPattern: copyOpt(src.dashPattern, (a) => [...a]),
     fontVariations: copyOpt(src.fontVariations, (a) => a.map((v) => ({ ...v }))),
+    ...copyTextLengths(src),
     fontFeatures: copyOpt(src.fontFeatures, (a) => a.map((v) => ({ ...v }))),
     textParagraphs: copyOpt(src.textParagraphs, (a) => a.map((v) => ({ ...v }))),
     textDecorationFills: copyOpt(src.textDecorationFills, copyFills),
@@ -315,6 +326,9 @@ export function cloneNodeProps(
     gridPosition: src.gridPosition ? { ...src.gridPosition } : null,
     targetAspectRatio: src.targetAspectRatio ? { ...src.targetAspectRatio } : null,
     connectorStart: src.connectorStart ? copyConnectorEndpoint(src.connectorStart) : null,
-    connectorEnd: src.connectorEnd ? copyConnectorEndpoint(src.connectorEnd) : null
+    connectorEnd: src.connectorEnd ? copyConnectorEndpoint(src.connectorEnd) : null,
+    connectorControlPoints: structuredClone(src.connectorControlPoints),
+    connectorCurveHandles: structuredClone(src.connectorCurveHandles),
+    connectorLabelPosition: src.connectorLabelPosition ? { ...src.connectorLabelPosition } : null
   }
 }

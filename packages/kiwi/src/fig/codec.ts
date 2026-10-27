@@ -6,9 +6,8 @@
  * - fzstd: Browser-compatible Zstd decompression
  */
 
-import { decompress as zstdDecompress } from 'fzstd'
-
 import { compileSchema, encodeBinarySchema } from '../schema-runtime'
+import { decompressFigKiwiData, loadFigDataDecompressor } from './container'
 import { isZstdCompressed, getKiwiMessageType } from './protocol'
 import figmaSchema from './schema'
 import type { Color, GUID, Matrix, Vector } from './types'
@@ -27,6 +26,7 @@ let compiledSchema: CompiledSchema | null = null
  */
 export async function initCodec(): Promise<void> {
   if (compiledSchema) return
+  await loadFigDataDecompressor()
   compiledSchema = compileSchema(figmaSchema) as CompiledSchema
 }
 
@@ -58,7 +58,7 @@ export function compress(data: Uint8Array): Uint8Array {
  */
 export function decompress(data: Uint8Array): Uint8Array {
   if (!isZstdCompressed(data)) return data
-  return zstdDecompress(data)
+  return decompressFigKiwiData(data)
 }
 
 /**
@@ -97,8 +97,6 @@ export function peekMessageType(data: Uint8Array): number | null {
 }
 
 // Type definitions
-
-export type { Color, GUID, Matrix, Vector } from './types'
 
 export interface ParentIndex {
   guid: GUID
@@ -536,5 +534,3 @@ export function createNodeChange(opts: {
 
   return change
 }
-
-export { parseVariableId } from './variable-bindings'

@@ -1,5 +1,4 @@
-import { useEditorCommands } from '@open-pencil/vue'
-import type { EditorCommandId } from '@open-pencil/vue'
+import { useEditorCommands, type EditorCommandId } from '@open-pencil/vue/editor/commands'
 
 import { useEditorStore } from '@/app/editor/active-store'
 import { clearRecentFiles, forgetRecentFile, recentLocalFileAt } from '@/app/recent-files'
@@ -56,6 +55,9 @@ export function useEditorMenu() {
     },
     'export-pptx': () => {
       if (store.state.selectedIds.size > 0) void store.exportSelection(1, 'pptx')
+    },
+    'export-drawio': () => {
+      if (store.state.selectedIds.size > 0) void store.exportSelection(1, 'drawio')
     },
     'export-fig': () => {
       if (store.state.selectedIds.size > 0) void store.exportSelection(1, 'fig')

@@ -1,18 +1,17 @@
+import type { Fill, SceneNode, ArcData, NodeType } from '@open-pencil/scene-graph'
+import { colorToFill } from '@open-pencil/scene-graph/color'
+import { parseCSSGridTracks, parseCSSNumber } from '@open-pencil/scene-graph/css'
 import {
   autoLayoutSizingFields,
   fillSizingFields,
   parseAutoLayoutDirection,
   parseCounterAxisAlign,
-  parsePrimaryAxisAlign,
-  withShaderPaints,
-  type Fill,
-  type SceneNode,
-  type ShaderPaint
-} from '@open-pencil/scene-graph'
-import { colorToFill } from '@open-pencil/scene-graph/color'
-import { parseCSSGridTracks, parseCSSNumber } from '@open-pencil/scene-graph/css'
+  parsePrimaryAxisAlign
+} from '@open-pencil/scene-graph/layout'
 import type { Color, JSONObject } from '@open-pencil/scene-graph/primitives'
+import { withShaderPaints, type ShaderPaint } from '@open-pencil/scene-graph/shaders'
 
+import { DESIGN_JSX_STYLE_KEYS, designJSXProp } from './definitions'
 import {
   BLEND_MODE,
   TEXT_ALIGN,
@@ -26,9 +25,8 @@ import { applyEffectOverrides } from './overrides/effects'
 import { fillFromValue, isColor, isFillValue } from './overrides/fills'
 import { applyStateOverrides } from './overrides/state'
 import { applyStrokeOverrides } from './overrides/strokes'
-import { applyTextDetailOverrides, AUTO } from './overrides/text'
+import { applyTextDetailOverrides, AUTO, textLengthProp } from './overrides/text'
 import { isShaderFill } from './paints'
-import { DESIGN_JSX_STYLE_KEYS, designJSXProp } from './schema'
 
 const WEIGHT_MAP: Record<string, number> = {
   normal: 400,
@@ -160,6 +158,8 @@ function applyVisualOverrides(props: Record<string, unknown>, o: Partial<SceneNo
 function applyTransformOverrides(props: Record<string, unknown>, o: Partial<SceneNode>): void {
   const rotation = designJSXProp(props, 'rotate')
   if (rotation !== undefined) o.rotation = rotation as number
+  if (props.flipX !== undefined) o.flipX = props.flipX === true
+  if (props.flipY !== undefined) o.flipY = props.flipY === true
 }
 
 function applyPaddingOverrides(props: Record<string, unknown>, o: Partial<SceneNode>): void {
@@ -349,9 +349,11 @@ function applyTextStyleOverrides(props: Record<string, unknown>, o: Partial<Scen
     o.fills = [colorToFill(props.color)]
   }
 
-  if (props.lineHeight === AUTO) o.lineHeight = null
-  else if (props.lineHeight !== undefined) o.lineHeight = props.lineHeight as number
-  if (props.letterSpacing !== undefined) o.letterSpacing = props.letterSpacing as number
+  // A value it cannot read is left out, so the text keeps its own.
+  const lineHeight = props.lineHeight === AUTO ? null : textLengthProp(props.lineHeight)
+  if (lineHeight !== undefined) o.lineHeight = lineHeight
+  const letterSpacing = textLengthProp(props.letterSpacing)
+  if (letterSpacing) o.letterSpacing = letterSpacing
   const textDecoration = TEXT_DECORATION.parse(props.textDecoration)
   if (textDecoration) o.textDecoration = textDecoration
   applyTextDetailOverrides(props, o)
@@ -413,10 +415,48 @@ function applyTextOverrides(
   applyTextAutoResize(props, o, parentLayout)
 }
 
-function applyShapeOverrides(props: Record<string, unknown>, o: Partial<SceneNode>): void {
-  if (props.points !== undefined) o.pointCount = props.points as number
-  if (props.innerRadius !== undefined) o.starInnerRadius = props.innerRadius as number
-  if (props.pointCount !== undefined) o.pointCount = props.pointCount as number
+const FULL_TURN_DEGREES = 360
+
+function numberProp(value: unknown): number | undefined {
+  return typeof value === 'number' ? value : undefined
+}
+
+/**
+ * An `<Ellipse>`'s arc from its props: angles in degrees, clockwise from three o'clock, as the
+ * canvas draws arcs, and the hole as a share of the ellipse. Null when none is set.
+ */
+function arcOverride(props: Record<string, unknown>): ArcData | null {
+  const start = numberProp(props.startAngle)
+  const end = numberProp(props.endAngle)
+  const innerRadius = numberProp(props.innerRadius)
+  if (start === undefined && end === undefined && innerRadius === undefined) return null
+  const startDegrees = start ?? 0
+  return {
+    startingAngle: (startDegrees * Math.PI) / 180,
+    endingAngle: ((end ?? startDegrees + FULL_TURN_DEGREES) * Math.PI) / 180,
+    innerRadius: innerRadius ?? 0
+  }
+}
+
+/** The fields a shape element's own props set, by the layer it makes. */
+export function shapeOverrides(
+  nodeType: NodeType,
+  props: Record<string, unknown>
+): Partial<SceneNode> {
+  const o: Partial<SceneNode> = {}
+  if (nodeType === 'STAR' || nodeType === 'POLYGON') {
+    const points = numberProp(props.pointCount) ?? numberProp(props.points)
+    if (points !== undefined) o.pointCount = points
+  }
+  if (nodeType === 'STAR') {
+    const innerRadius = numberProp(props.innerRadius)
+    if (innerRadius !== undefined) o.starInnerRadius = innerRadius
+  }
+  if (nodeType === 'ELLIPSE') {
+    const arc = arcOverride(props)
+    if (arc) o.arcData = arc
+  }
+  return o
 }
 
 export function propsToOverrides(
@@ -433,7 +473,6 @@ export function propsToOverrides(
   applyVisualOverrides(props, o)
   applyLayoutOverrides(props, o, w, h, isText, parentLayout)
   if (isText) applyTextOverrides(props, o, parentLayout)
-  applyShapeOverrides(props, o)
   applyEffectOverrides(props, o)
   applyStateOverrides(props, o)
 

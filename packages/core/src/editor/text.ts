@@ -1,17 +1,18 @@
+import type { SceneNode } from '@open-pencil/scene-graph'
+import { copyDerivedGlyphs, copyGeometryPaths } from '@open-pencil/scene-graph/copy'
+import { weightToStyle } from '@open-pencil/scene-graph/font-style'
 import {
   cloneInstanceOverrideState,
   setInstanceOverride,
-  type InstanceOverrideState,
-  type SceneNode
-} from '@open-pencil/scene-graph'
-import { copyDerivedGlyphs, copyGeometryPaths } from '@open-pencil/scene-graph/copy'
+  type InstanceOverrideState
+} from '@open-pencil/scene-graph/instances/overrides'
 
 import { textAutoResizeChanges } from '#core/layout/text-auto-resize'
 import type { TextEditorState } from '#core/text/editor'
-import { weightToStyle } from '#core/text/fonts'
-import { hasGlyphOutlines } from '#core/text/opentype'
+import { hasGlyphOutlines } from '#core/text/font/glyphs'
 
 import { applyBoundTextEdit } from './components/authoring/text-edit'
+import { fitEmptyLabelToPlaceholder } from './connectors/label-edit'
 import { applyGeneratedTextNameEdit } from './text/name'
 import { pathTextEditChanges } from './text/path-edit'
 import {
@@ -22,6 +23,7 @@ import {
   type TextEditSession
 } from './text/session'
 import type { EditorContext } from './types'
+import { createVariableBindingActions } from './variable-bindings'
 
 /**
  * Path text is edited by re-flowing glyph OUTLINES along its path. When the font
@@ -106,6 +108,9 @@ function applyTextInstanceOverride(
 
 export function createTextActions(ctx: EditorContext) {
   let activeSession: TextEditSession | null = null
+  /** Puts back the size an empty connector label had before its placeholder sized it. */
+  let restoreEmptyLabel: (() => void) | null = null
+  const variableBindings = createVariableBindingActions(ctx)
 
   /**
    * Typing resizes auto-sized text and lays out its auto-layout ancestors as it goes, so a Hug
@@ -134,6 +139,7 @@ export function createTextActions(ctx: EditorContext) {
     if (!isPathTextEditable(node)) return
     activeSession = createTextEditSession(node)
     ctx.state.editingTextId = nodeId
+    restoreEmptyLabel = fitEmptyLabelToPlaceholder(ctx, node)
     if (te) {
       te.setRenderer(ctx.getRenderer())
       te.start(node)
@@ -178,7 +184,8 @@ export function createTextActions(ctx: EditorContext) {
     }
     const instanceOverridesAfter = snapshotInstanceOverrides(ctx, containingInstances)
 
-    // Text a property drives becomes the property's value too, in the same undo step.
+    // Text a property drives becomes the property's value too, and typing over text a variable
+    // decides lets go of the variable, as in Figma, both in the same undo step.
     ctx.undo.runBatch('Edit text', () => {
       ctx.undo.push({
         label: 'Edit text',
@@ -206,6 +213,8 @@ export function createTextActions(ctx: EditorContext) {
         }
       })
       if (before.text !== after.text) {
+        if (node && 'text' in node.boundVariables)
+          variableBindings.unbindVariable(result.nodeId, 'text')
         applyBoundTextEdit(ctx, result.nodeId, after.text)
         applyGeneratedTextNameEdit(ctx, result.nodeId, after.text)
       }
@@ -214,9 +223,12 @@ export function createTextActions(ctx: EditorContext) {
 
   function commitTextEdit() {
     const te = ctx.getTextEditor()
+    const restore = restoreEmptyLabel
+    restoreEmptyLabel = null
     if (!te?.isActive) {
       ctx.state.editingTextId = null
       activeSession = null
+      restore?.()
       return
     }
     const textState = te.state
@@ -224,6 +236,7 @@ export function createTextActions(ctx: EditorContext) {
     te.stop()
     ctx.state.editingTextId = null
     activeSession = null
+    restore?.()
     ctx.requestRender()
   }
 

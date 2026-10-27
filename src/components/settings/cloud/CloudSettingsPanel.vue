@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger
 } from 'reka-ui'
 
-import { useCloudMessages } from '@open-pencil/vue'
+import { useCloudMessages } from '@open-pencil/vue/i18n'
 
 import AccountAvatar from '@/components/presence/AccountAvatar.vue'
 import SettingsGroup from '@/components/settings/layout/SettingsGroup.vue'
@@ -117,7 +117,11 @@ const title = (server: CloudServerEntry) =>
               {{ t.settingsAccessClosed }}
             </p>
             <p v-else-if="server.account && server.session === 'signed-in'" :class="ui.account()">
-              <AccountAvatar :id="server.account.id" :name="server.account.name" />
+              <AccountAvatar
+                :id="server.account.id"
+                :name="server.account.name"
+                :image="server.account.image ?? null"
+              />
               <span :class="ui.accountText()">
                 {{ server.account.name }} · {{ server.account.email }}
               </span>

@@ -12,9 +12,15 @@ import type {
 
 import type { SceneNode } from '@open-pencil/scene-graph'
 import { resolveRGBAForPreview } from '@open-pencil/scene-graph/color'
-import { resolveNodeTextDirection } from '@open-pencil/scene-graph/text-direction'
+import { weightToStyle } from '@open-pencil/scene-graph/font-style'
+import { lineHeightPixels, textLengthPixels } from '@open-pencil/scene-graph/text'
+import { resolveNodeTextDirection } from '@open-pencil/scene-graph/text/direction'
 
-import { loadedFace, resolveParagraphFontFamilies } from '#core/canvas/text/font-families'
+import {
+  drawnFontVariations,
+  loadedFace,
+  resolveParagraphFontFamilies
+} from '#core/canvas/text/font-families'
 import { laidOutText } from '#core/canvas/text/keycap'
 import {
   pushParagraphStyle,
@@ -24,7 +30,8 @@ import {
 import type { TextRenderer } from '#core/canvas/text/renderer'
 import { DEFAULT_FONT_FAMILY, DEFAULT_FONT_SIZE } from '#core/constants'
 import { shownTextSlice } from '#core/text/case'
-import { fontManager, weightToStyle } from '#core/text/fonts'
+import { ELLIPSIS } from '#core/text/ellipsis'
+import { fontManager } from '#core/text/fonts'
 
 import type { ParagraphNode } from './inputs'
 
@@ -40,11 +47,11 @@ export function buildTruncateOpts(
 ): { maxLines?: number; ellipsis?: string } {
   if (node.textTruncation !== 'ENDING') return {}
 
-  const opts: { maxLines?: number; ellipsis: string } = { ellipsis: '…' }
+  const opts: { maxLines?: number; ellipsis: string } = { ellipsis: ELLIPSIS }
   if (node.maxLines != null && node.maxLines > 0) {
     opts.maxLines = node.maxLines
   } else if (node.height > 0) {
-    const lineH = node.lineHeight || baseFontSize * 1.2
+    const lineH = lineHeightPixels(node.lineHeight, baseFontSize) || baseFontSize * 1.2
     opts.maxLines = Math.max(1, Math.floor(node.height / lineH))
   }
   return opts
@@ -164,8 +171,12 @@ function pushStyleRun(
 ): void {
   const ck = r.ck
   const style = run.style
-  const runLineHeight = style.lineHeight !== undefined ? style.lineHeight : node.lineHeight
   const runFontSize = style.fontSize ?? baseFontSize
+  // A percent follows the run's own font size, as in Figma.
+  const runLineHeight = lineHeightPixels(
+    style.lineHeight !== undefined ? style.lineHeight : node.lineHeight,
+    runFontSize
+  )
   const runFamily = style.fontFamily ?? (node.fontFamily || DEFAULT_FONT_FAMILY)
   const runWeight = style.fontWeight ?? node.fontWeight
   const runItalic = style.italic ?? node.italic
@@ -177,11 +188,17 @@ function pushStyleRun(
     locale: styleRunLanguage(style, node),
     fontStyle: drawnFontStyle(ck, runFamily, runWeight, runItalic),
     fontVariations: textFontVariations(
-      style.fontVariations ?? node.fontVariations,
-      fontManager.namedInstanceVariations(runFamily, weightToStyle(runWeight, runItalic))
+      drawnFontVariations({
+        family: runFamily,
+        weight: runWeight,
+        italic: runItalic,
+        fontSize: runFontSize,
+        variations: style.fontVariations ?? node.fontVariations,
+        opticalSizeFromFontSize: node.opticalSizeFromFontSize
+      })
     ),
     fontFeatures: textFontFeatures(style.fontFeatures ?? node.fontFeatures),
-    letterSpacing: style.letterSpacing ?? (node.letterSpacing || 0),
+    letterSpacing: textLengthPixels(style.letterSpacing ?? node.letterSpacing, runFontSize),
     heightMultiplier: runLineHeight ? runLineHeight / runFontSize : undefined,
     halfLeading
   })
@@ -260,6 +277,7 @@ export function buildSkParagraph(
   const ck = r.ck
   const baseColor = color ?? ck.BLACK
   const baseFontSize = node.fontSize || DEFAULT_FONT_SIZE
+  const baseLineHeight = lineHeightPixels(node.lineHeight, baseFontSize)
   const cjkFallbacks = fontManager.getCJKFallbackFamilies()
   const arabicFallbacks = fontManager.getArabicFallbackFamilies()
   const textDirection = resolveNodeTextDirection(node)
@@ -290,15 +308,18 @@ export function buildSkParagraph(
       node.italic
     ),
     fontVariations: textFontVariations(
-      node.fontVariations,
-      fontManager.namedInstanceVariations(
-        node.fontFamily || DEFAULT_FONT_FAMILY,
-        weightToStyle(node.fontWeight, node.italic)
-      )
+      drawnFontVariations({
+        family: node.fontFamily || DEFAULT_FONT_FAMILY,
+        weight: node.fontWeight,
+        italic: node.italic,
+        fontSize: baseFontSize,
+        variations: node.fontVariations,
+        opticalSizeFromFontSize: node.opticalSizeFromFontSize
+      })
     ),
     fontFeatures: textFontFeatures(node.fontFeatures),
-    letterSpacing: node.letterSpacing || 0,
-    heightMultiplier: node.lineHeight ? node.lineHeight / baseFontSize : undefined,
+    letterSpacing: textLengthPixels(node.letterSpacing, baseFontSize),
+    heightMultiplier: baseLineHeight ? baseLineHeight / baseFontSize : undefined,
     halfLeading
   }
   const paraStyle = new ck.ParagraphStyle({

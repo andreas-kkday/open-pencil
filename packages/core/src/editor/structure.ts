@@ -1,11 +1,9 @@
 import { pick } from 'es-toolkit'
 
-import {
-  createsComponentCycle,
-  generatedFrameKind,
-  TRANSFORM_FIELDS,
-  type SceneNode
-} from '@open-pencil/scene-graph'
+import type { SceneNode } from '@open-pencil/scene-graph'
+import { TRANSFORM_FIELDS } from '@open-pencil/scene-graph/fields'
+import { generatedFrameKind } from '@open-pencil/scene-graph/generated'
+import { createsComponentCycle } from '@open-pencil/scene-graph/instances'
 
 import { acceptingParent, acceptsChildren, prepareSlotEdits } from '#core/editor/components/slots'
 import { fitEnclosingGroupsWithUndo } from '#core/editor/structure/group/bounds'
@@ -16,12 +14,10 @@ import {
   type BooleanOperation
 } from './structure/boolean'
 import { wrapSelectionInContainer as wrapSelectionInContainerImpl } from './structure/container-wrap'
-import {
-  flattenSelected as flattenSelectedImpl,
-  outlineStrokeSelected as outlineStrokeSelectedImpl
-} from './structure/flatten'
+import { flattenSelected as flattenSelectedImpl } from './structure/flatten'
 import { ungroupSelected as ungroupImpl } from './structure/group/ungroup'
 import { createLayerTypeActions } from './structure/layer-type'
+import { outlineStrokeSelected as outlineStrokeSelectedImpl } from './structure/outline-stroke'
 import {
   defaultNodeName,
   previewRenamedNodes,
@@ -136,7 +132,7 @@ export function createStructureActions(ctx: EditorContext) {
       forward: move,
       inverse: () => {
         for (const { id, parentId, index, place } of origins) {
-          ctx.graph.reorderChild(id, parentId, index)
+          ctx.graph.insertChildAt(id, parentId, index)
           ctx.graph.updateNode(id, place)
         }
         for (const parentId of parentIds) ctx.runLayoutForNode(parentId)

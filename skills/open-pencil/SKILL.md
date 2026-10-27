@@ -26,6 +26,8 @@ Use `openpencil --help`, per-command help, and the connected MCP server’s tool
 
 Inside `eval`, use `openpencil.setVariableFormula('Spacing', 'large', '{base} * 2')` for numeric formulas or `openpencil.setVariableFormula('State', 'visible', '{viewport} > 1024 and not {loading}')` for Boolean formulas, which use `and`, `or`, `not` and number comparisons. Collections and variables must already exist. An optional fourth argument selects a mode by name; otherwise the default mode is edited. The call validates before mutation and returns the resolved value. Length formulas use stored pixels. The CSS stylesheet writes number formulas as `calc()`; design-token files hold the result with the formula in `$extensions`.
 
+Variables follow Figma's plugin API: `figma.variables.getLocalVariables()`, `createVariable(name, collection, type)`, `variable.setValueForMode(modeId, value)`, and `node.setBoundVariable(field, variable)` with Figma's field names (`characters`, `width`, `paddingLeft`) and types; paint colours bind through `figma.variables.setBoundVariableForPaint`. To bind as the layer panel does, use `openpencil.bindVariable(node, field, variable)` and `openpencil.unbindVariable(node, field)` with OpenPencil names (`text`, `visible`, `opacity`, `fills/0/color`): text content takes a text or number variable, shown as text; visibility a boolean or text one. `openpencil` also sets layout and text direction (`setLayoutDirection`, `setTextDirection`), OkHCL paint colors (`setFillOkHCL`, `setStrokeOkHCL`), exposes instance swaps (`exposeInstanceSwap`), and reports font availability (`getFontStatus()`); booleans and flattening are Figma's `figma.union`, `subtract`, `intersect`, `exclude` and `figma.flatten`.
+
 ## Requirements
 
 ```bash
@@ -175,7 +177,7 @@ openpencil eval design.fig -w -c '
 '
 ```
 
-Text styles follow Figma's per-character model: `getStyledTextSegments(fields)` reads runs, `getRange…`/`setRange…` read and set font, size, fills, letter spacing, line height, decorations, text case, hyperlinks, text and fill style IDs, and bound variables for `[start, end)`, and a text's `fontSize`, `fontName`, `fills`, and similar read `figma.mixed` while characters differ. Check for it before using the value.
+Text styles follow Figma's per-character model: `getStyledTextSegments(fields)` reads runs, `getRange…`/`setRange…` read and set font, size, fills, letter spacing, line height, decorations, text case, hyperlinks, text and fill style IDs, and bound variables for `[start, end)`, and a text's `fontSize`, `fontName`, `fills`, and similar read `figma.mixed` while characters differ. Check for it before using the value. Paints everywhere take Figma's shape: a solid `color` is `{ r, g, b }` with the alpha in `opacity`, and an image is `{ type: "IMAGE", imageHash, scaleMode: "FILL" | "FIT" | "CROP" | "TILE" }` with optional `rotation` and `scalingFactor`.
 
 Next to `figma`, scripts get `openpencil`: what OpenPencil adds to the Figma API, in its style. A main component can behave as a Reka UI control, by its own property and slot names:
 
